@@ -128,6 +128,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MainTabControl = new System.Windows.Forms.TabControl();
+            this.IncludeCreatedEventsCheckBox = new System.Windows.Forms.CheckBox();
             this.MainStatusStrip.SuspendLayout();
             this.MainFormMenuStrip.SuspendLayout();
             this.AdminTab.SuspendLayout();
@@ -160,16 +161,19 @@
             // 
             // LogInStatusLabel
             // 
+            this.LogInStatusLabel.AutoSize = false;
             this.LogInStatusLabel.ForeColor = System.Drawing.Color.Green;
+            this.LogInStatusLabel.Margin = new System.Windows.Forms.Padding(8, 3, 0, 2);
             this.LogInStatusLabel.Name = "LogInStatusLabel";
-            this.LogInStatusLabel.Size = new System.Drawing.Size(134, 17);
+            this.LogInStatusLabel.Size = new System.Drawing.Size(350, 17);
             this.LogInStatusLabel.Text = "Connected : [username]";
+            this.LogInStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // RegisteredEventCountLabel
             // 
             this.RegisteredEventCountLabel.AutoSize = false;
             this.RegisteredEventCountLabel.ForeColor = System.Drawing.Color.Green;
-            this.RegisteredEventCountLabel.Margin = new System.Windows.Forms.Padding(385, 3, 0, 2);
+            this.RegisteredEventCountLabel.Margin = new System.Windows.Forms.Padding(180, 3, 0, 2);
             this.RegisteredEventCountLabel.Name = "RegisteredEventCountLabel";
             this.RegisteredEventCountLabel.Size = new System.Drawing.Size(184, 17);
             this.RegisteredEventCountLabel.Text = "[registered count]";
@@ -315,7 +319,7 @@
             this.AdminGnerateReportButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminGnerateReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminGnerateReportButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminGnerateReportButton.Location = new System.Drawing.Point(6, 396);
+            this.AdminGnerateReportButton.Location = new System.Drawing.Point(6, 391);
             this.AdminGnerateReportButton.Name = "AdminGnerateReportButton";
             this.AdminGnerateReportButton.Size = new System.Drawing.Size(338, 40);
             this.AdminGnerateReportButton.TabIndex = 19;
@@ -502,7 +506,7 @@
             this.AdminCreateUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminCreateUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminCreateUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminCreateUserButton.Location = new System.Drawing.Point(6, 396);
+            this.AdminCreateUserButton.Location = new System.Drawing.Point(6, 391);
             this.AdminCreateUserButton.Name = "AdminCreateUserButton";
             this.AdminCreateUserButton.Size = new System.Drawing.Size(338, 40);
             this.AdminCreateUserButton.TabIndex = 9;
@@ -578,6 +582,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.IncludeCreatedEventsCheckBox);
             this.groupBox2.Controls.Add(this.UnregisterFromEventButton);
             this.groupBox2.Controls.Add(this.ViewSelectedEventButton);
             this.groupBox2.Controls.Add(this.GenerateEventScheduleButton);
@@ -626,7 +631,7 @@
             this.GenerateEventScheduleButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.GenerateEventScheduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateEventScheduleButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.GenerateEventScheduleButton.Location = new System.Drawing.Point(6, 396);
+            this.GenerateEventScheduleButton.Location = new System.Drawing.Point(6, 391);
             this.GenerateEventScheduleButton.Name = "GenerateEventScheduleButton";
             this.GenerateEventScheduleButton.Size = new System.Drawing.Size(338, 40);
             this.GenerateEventScheduleButton.TabIndex = 19;
@@ -814,7 +819,7 @@
             this.CreateNewEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.CreateNewEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateNewEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CreateNewEventButton.Location = new System.Drawing.Point(6, 396);
+            this.CreateNewEventButton.Location = new System.Drawing.Point(6, 391);
             this.CreateNewEventButton.Name = "CreateNewEventButton";
             this.CreateNewEventButton.Size = new System.Drawing.Size(338, 40);
             this.CreateNewEventButton.TabIndex = 9;
@@ -1240,6 +1245,18 @@
             this.MainTabControl.TabIndex = 2;
             this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControl_SelectedIndexChanged);
             // 
+            // IncludeCreatedEventsCheckBox
+            // 
+            this.IncludeCreatedEventsCheckBox.AutoSize = true;
+            this.IncludeCreatedEventsCheckBox.Checked = true;
+            this.IncludeCreatedEventsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IncludeCreatedEventsCheckBox.Location = new System.Drawing.Point(7, 438);
+            this.IncludeCreatedEventsCheckBox.Name = "IncludeCreatedEventsCheckBox";
+            this.IncludeCreatedEventsCheckBox.Size = new System.Drawing.Size(137, 17);
+            this.IncludeCreatedEventsCheckBox.TabIndex = 22;
+            this.IncludeCreatedEventsCheckBox.Text = "Include Created Events";
+            this.IncludeCreatedEventsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainVolunteerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1269,6 +1286,7 @@
             this.panel4.PerformLayout();
             this.MyEventsTab.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1388,5 +1406,6 @@
         private System.Windows.Forms.LinkLabel RegisteredEventContactEmail;
         private System.Windows.Forms.Label RegisteredEventContactLabel;
         private System.Windows.Forms.Button CreatedEventDateHeaderButton;
+        private System.Windows.Forms.CheckBox IncludeCreatedEventsCheckBox;
     }
 }

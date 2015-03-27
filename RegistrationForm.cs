@@ -18,7 +18,8 @@ namespace IT_3883_Volunteer_App
         private const string PHONE_ERROR = "Your phone number cannot be blank and must be 10 digits long";
         private const string INVALID_EMAIL_ERROR = "The email address you provided is not in the correct format.";
         private const string EMAIL_INUSE_ERROR = "The email address you provided is already in use.";
-        private const string PASSWORD_ERROR = "Your passwords cannot be blank, must be at least 6 characters, and match.";
+        private const string PASSWORD_ERROR = "Your password must be at least 6 characters long.";
+        private const string CONFIRM_ERROR = "Your confirmed password and password do not match.";
 
         public RegistrationForm()
         {
@@ -43,7 +44,7 @@ namespace IT_3883_Volunteer_App
             if (!PhoneNumberIsValid) SetErrorForControl(PhoneNumberTextBox, PHONE_ERROR);
             if (!EmailIsValid) SetErrorForControl(EmailAddressTextBox, INVALID_EMAIL_ERROR);
             if (!PasswordIsValid) SetErrorForControl(PasswordTextBox, PASSWORD_ERROR);
-            if (!ConfirmedPasswordIsValid) SetErrorForControl(ConfirmPasswordTextBox, PASSWORD_ERROR);
+            if (!ConfirmedPasswordIsValid) SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
         }
 
         private bool ValidateForm()
@@ -178,9 +179,7 @@ namespace IT_3883_Volunteer_App
 
         private void CloseRegistrationForm()
         {
-            if (MessageBox.Show("Are you sure you want to cancel your registration?", "Cancel Registration",
-                MessageBoxButtons.YesNo) == DialogResult.Yes)
-                this.Close();
+            this.Close();
         }
 
         private void CancelRegistrationButton_Click(object sender, EventArgs e)
@@ -203,7 +202,14 @@ namespace IT_3883_Volunteer_App
         private void ClearInput_EnterFocus(object sender, EventArgs e)
         {
             var textbox = sender as TextBox;
+            if (textbox == PasswordTextBox)
+            {
+                ConfirmPasswordTextBox.Clear();
+                SetErrorForControl(ConfirmPasswordTextBox);
+            }
+
             textbox.Clear();
+            SetErrorForControl(textbox);
         }
 
         private void SetErrorForControl(Control control, string error = "")
@@ -261,14 +267,6 @@ namespace IT_3883_Volunteer_App
             }
         }
 
-        private void ValidateConfirmedPassword_Validating(object sender, CancelEventArgs e)
-        {
-            if (!ValidateConfirmedPassword())
-                SetErrorForControl(ConfirmPasswordTextBox, PASSWORD_ERROR);
-            else
-                SetErrorForControl(ConfirmPasswordTextBox);
-        }
-
         private void ValidatePassword_Validating(object sender, CancelEventArgs e)
         {
             if (!ValidatePassword())
@@ -289,6 +287,21 @@ namespace IT_3883_Volunteer_App
                 CloseRegistrationForm();
             else if (e.KeyData == Keys.Enter || e.KeyData == Keys.Return)
                 ProcessRegistration();
+        }
+
+        private void ConfirmPasswordTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!ValidateConfirmedPassword() && PasswordIsValid)
+                SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
+            else
+                SetErrorForControl(ConfirmPasswordTextBox);
+        }
+
+        private void RegistrationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to cancel your registration?",
+                "Cancel Registration", MessageBoxButtons.YesNo) == DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

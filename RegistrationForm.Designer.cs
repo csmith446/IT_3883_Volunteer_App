@@ -167,7 +167,7 @@
             this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(175, 20);
             this.ConfirmPasswordTextBox.TabIndex = 5;
             this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
-            this.ConfirmPasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateConfirmedPassword_Validating);
+            this.ConfirmPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmPasswordTextBox_KeyUp);
             // 
             // ConfirmPasswordLabel
             // 
@@ -211,7 +211,6 @@
             // CancelRegistrationButton
             // 
             this.CancelRegistrationButton.BackColor = System.Drawing.Color.Salmon;
-            this.CancelRegistrationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelRegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelRegistrationButton.Location = new System.Drawing.Point(61, 308);
             this.CancelRegistrationButton.Name = "CancelRegistrationButton";
@@ -236,12 +235,13 @@
             this.Controls.Add(this.AccountInformationGroupBox);
             this.Controls.Add(this.ContactInformationGroupBox);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "RegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Volunteer Registration";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RegistrationForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegistrationForm_KeyDown);
             this.ContactInformationGroupBox.ResumeLayout(false);
             this.ContactInformationGroupBox.PerformLayout();

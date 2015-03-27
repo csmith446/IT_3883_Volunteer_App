@@ -99,7 +99,7 @@ namespace IT_3883_Volunteer_App
         {
             VolunteerEventsListView.Items.Clear();
             VolunteerEventsListView.CheckBoxes = true;
-            var currentEvents = DatabaseManager.GetAllEvents();
+            var currentEvents = EventList;
             var RegisteredEventItems = new List<ListViewItem>();
             switch (order)
             {
@@ -322,6 +322,7 @@ namespace IT_3883_Volunteer_App
             MessageBox.Show(string.Format("You registered for {0} events!", VolunteerEventsListView.CheckedItems.Count));
             ClearSelectedEvents();
             LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked, CurrentOrder);
+            SetupAllLists(CurrentUser); 
             SetRegisteredCountLable();
         }
 
@@ -436,8 +437,8 @@ namespace IT_3883_Volunteer_App
 
             if (UserCreatedEventsListView.Items.Count == 0)
             {
-                UserCreatedEventsListView.Items.Add(new ListViewItem("You haven't created any events"));
                 UserCreatedEventsListView.Enabled = false;
+                UserCreatedEventsListView.Items.Add(new ListViewItem("You haven't created any events"));
             }
             else
             {
@@ -499,39 +500,43 @@ namespace IT_3883_Volunteer_App
 
         private void UserCreatedEventsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            bool noEvents = UserCreatedEventsListView.Items[0].Text != "You haven't created any events";
-            EditSelectedEventButton.Enabled = UserCreatedEventsListView.SelectedItems.Count > 0 &&
-                noEvents;
-            DeleteSelectedEventButton.Enabled = UserCreatedEventsListView.SelectedItems.Count > 0 &&
-                noEvents;
+            EditSelectedEventButton.Enabled = false;
+            DeleteSelectedEventButton.Enabled = false;
 
-            if (e.IsSelected && noEvents)
-            {
-                CreatedEventTime.Text = e.Item.SubItems[2].Text;
-                CreatedEventAttendees.Text = e.Item.SubItems[3].Text;
-            }
-            else
+            if (e.Item.Text == "You haven't created any events")
             {
                 CreatedEventTime.Text = "";
                 CreatedEventAttendees.Text = "";
+                e.Item.Selected = false;
+                return;
+            }
+
+            if (e.IsSelected)
+            {
+                CreatedEventTime.Text = e.Item.SubItems[2].Text;
+                CreatedEventAttendees.Text = e.Item.SubItems[3].Text;
+                EditSelectedEventButton.Enabled = true;
+                DeleteSelectedEventButton.Enabled = true;
             }
         }
 
         private void UserRegisteredEventsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            bool noEvents = UserRegisteredEventsListView.Items[0].Text != "You aren't registered for any events";
-            ViewSelectedEventButton.Enabled = (UserRegisteredEventsListView.SelectedItems.Count > 0 &&
-                noEvents);
-            UnregisterFromEventButton.Enabled = (UserRegisteredEventsListView.SelectedItems.Count > 0 && 
-                noEvents);
+            ViewSelectedEventButton.Enabled = false;
+            UnregisterFromEventButton.Enabled = false;
 
-            if (e.IsSelected && noEvents)
-            {
-                RegisteredEventContactEmail.Text = e.Item.SubItems[2].Text;
-            }
-            else
+            if(e.Item.Text == "You aren't registered for any events")
             {
                 RegisteredEventContactEmail.Text = "";
+                e.Item.Selected = false;
+                return;
+            }
+
+            if (e.IsSelected)
+            {
+                RegisteredEventContactEmail.Text = e.Item.SubItems[2].Text;
+                ViewSelectedEventButton.Enabled = true;
+                UnregisterFromEventButton.Enabled = true;
             }
         }
 
