@@ -175,7 +175,7 @@ namespace IT_3883_Volunteer_App
             return userInfo;
         }
 
-        static public User GerUserInformation(int contactId)
+        static public User GetUserInformation(int contactId)
         {
             var table = new DataTable();
             using (var connection = GetConnection())
@@ -204,7 +204,7 @@ namespace IT_3883_Volunteer_App
             return userInfo;
         }
 
-        static public List<Event> GetCurrentEvents()
+        static public List<Event> GetAllEvents()
         {
             var table = new DataTable();
             var listOfEvents = new List<Event>();
@@ -212,8 +212,6 @@ namespace IT_3883_Volunteer_App
             {
                 string query = "SELECT Events.ID, Events.Name, Events.Date, " +
                     "Events.Location, Events.Time, ContactInfo.ID as 'ContactID', " +
-                    "(SELECT COUNT(Registered_Events.UserID) FROM Registered_Events " +
-                    "WHERE Registered_Events.EventID = Events.ID) AS 'Attendees', " +
                     "Events.Duration FROM Events JOIN ContactInfo ON Events.ContactInfoID = " +
                     "ContactInfo.ID JOIN Users ON ContactInfo.ID = Users.ContactInfoID " +
                     "ORDER BY Events.Date";
@@ -227,17 +225,46 @@ namespace IT_3883_Volunteer_App
             {
                 listOfEvents.Add(new Event(
                     Int32.Parse(row[0].ToString()),
-                    Int32.Parse(row[6].ToString()),
                     row[1].ToString(),
                     row[2].ToString(),
                     row[4].ToString(),
                     row[3].ToString(),
-                    double.Parse(row[7].ToString()),
-                    GerUserInformation(Int32.Parse(row[5].ToString()))
+                    double.Parse(row[6].ToString()),
+                    GetUserInformation(Int32.Parse(row[5].ToString()))
                     ));
             }
 
             return listOfEvents;
+        }
+
+        static public List<User> GetAllUsers()
+        {
+            var table = new DataTable();
+            var listOfUsers = new List<User>();
+            using (var connection = GetConnection())
+            {
+                string query = "SELECT Users.ID, Users.Username, Users.FirstName, " +
+                    "Users.LastName, ContactInfo.PhoneNumber, Users.Isadmin FROM " +
+                    "Users JOIN ContactInfo ON Users.ContactInfoID = ContactInfo.ID";
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = query;
+                var da = new SQLiteDataAdapter(cmd);
+                da.Fill(table);
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                listOfUsers.Add(new User(
+                    Int32.Parse(row[0].ToString()),
+                    row[1].ToString(),
+                    row[2].ToString(),
+                    row[3].ToString(),
+                    row[4].ToString(),
+                    (row[5].ToString() == TRUE ? true : false)
+                    ));
+            }
+
+            return listOfUsers;
         }
 
         static public bool IsUserRegisteredForEvent(int eventId, int userId)
@@ -272,6 +299,22 @@ namespace IT_3883_Volunteer_App
                 cmd.Parameters.AddWithValue("@id", id);
 
                 result = (cmd.ExecuteScalar().ToString() == TRUE);
+            }
+
+            return result;
+        }
+
+        static public int GetContactIDForUser(User user)
+        {
+            int result = -1;
+            using (var connection = GetConnection())
+            {
+                string query = "SELECT Users.ContactInfoID FROM Users WHERE Users.ID = @userId";
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = query;
+                cmd.Parameters.AddWithValue("@userId", user.Id);
+
+                result = Int32.Parse(cmd.ExecuteScalar().ToString());
             }
 
             return result;

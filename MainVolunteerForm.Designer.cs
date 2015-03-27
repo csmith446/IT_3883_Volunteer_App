@@ -72,29 +72,29 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MyEventsTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.UnregisterFromEventButton = new System.Windows.Forms.Button();
+            this.ViewSelectedEventButton = new System.Windows.Forms.Button();
+            this.GenerateEventScheduleButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.RegisteredEventContactEmail = new System.Windows.Forms.LinkLabel();
+            this.RegisteredEventContactLabel = new System.Windows.Forms.Label();
+            this.RegisteredEventDateHeaderButton = new System.Windows.Forms.Button();
+            this.UserRegisteredEventsListView = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
+            this.RegisteredEventNameHeaderButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.CreatedEventTimeLabel = new System.Windows.Forms.Label();
+            this.CreatedEventAttendees = new System.Windows.Forms.Label();
+            this.CreatedEventTime = new System.Windows.Forms.Label();
+            this.CreatedEventAttendeeLabel = new System.Windows.Forms.Label();
+            this.DeleteSelectedEventButton = new System.Windows.Forms.Button();
+            this.EditSelectedEventButton = new System.Windows.Forms.Button();
             this.CreateNewEventButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.CreatedEventDateHeaderButton = new System.Windows.Forms.Button();
+            this.CreatedEventNameHeaderButton = new System.Windows.Forms.Button();
+            this.UserCreatedEventsListView = new System.Windows.Forms.ListView();
             this.CreatedEventNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CreatedEventDateColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ViewEventsTab = new System.Windows.Forms.TabPage();
@@ -572,13 +572,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Controls.Add(this.button10);
+            this.groupBox2.Controls.Add(this.UnregisterFromEventButton);
+            this.groupBox2.Controls.Add(this.ViewSelectedEventButton);
+            this.groupBox2.Controls.Add(this.GenerateEventScheduleButton);
             this.groupBox2.Controls.Add(this.panel3);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.listView2);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.RegisteredEventDateHeaderButton);
+            this.groupBox2.Controls.Add(this.UserRegisteredEventsListView);
+            this.groupBox2.Controls.Add(this.RegisteredEventNameHeaderButton);
             this.groupBox2.Location = new System.Drawing.Point(370, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(350, 457);
@@ -586,102 +586,103 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registered Events";
             // 
-            // button8
+            // UnregisterFromEventButton
             // 
-            this.button8.BackColor = System.Drawing.Color.Salmon;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(175, 326);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(169, 30);
-            this.button8.TabIndex = 21;
-            this.button8.Text = "Unregiester From Event";
-            this.button8.UseVisualStyleBackColor = false;
+            this.UnregisterFromEventButton.BackColor = System.Drawing.Color.Salmon;
+            this.UnregisterFromEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.UnregisterFromEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UnregisterFromEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UnregisterFromEventButton.Location = new System.Drawing.Point(175, 326);
+            this.UnregisterFromEventButton.Name = "UnregisterFromEventButton";
+            this.UnregisterFromEventButton.Size = new System.Drawing.Size(169, 30);
+            this.UnregisterFromEventButton.TabIndex = 21;
+            this.UnregisterFromEventButton.Text = "Unregiester From Event";
+            this.UnregisterFromEventButton.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // ViewSelectedEventButton
             // 
-            this.button9.BackColor = System.Drawing.Color.SandyBrown;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Location = new System.Drawing.Point(6, 326);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(170, 30);
-            this.button9.TabIndex = 20;
-            this.button9.Text = "View Selected Event";
-            this.button9.UseVisualStyleBackColor = false;
+            this.ViewSelectedEventButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.ViewSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.ViewSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ViewSelectedEventButton.Location = new System.Drawing.Point(6, 326);
+            this.ViewSelectedEventButton.Name = "ViewSelectedEventButton";
+            this.ViewSelectedEventButton.Size = new System.Drawing.Size(170, 30);
+            this.ViewSelectedEventButton.TabIndex = 20;
+            this.ViewSelectedEventButton.Text = "View Selected Event";
+            this.ViewSelectedEventButton.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // GenerateEventScheduleButton
             // 
-            this.button10.BackColor = System.Drawing.Color.PaleGreen;
-            this.button10.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Location = new System.Drawing.Point(6, 396);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(338, 40);
-            this.button10.TabIndex = 19;
-            this.button10.Text = "Generate Event Schedule";
-            this.button10.UseVisualStyleBackColor = false;
+            this.GenerateEventScheduleButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.GenerateEventScheduleButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.GenerateEventScheduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GenerateEventScheduleButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.GenerateEventScheduleButton.Location = new System.Drawing.Point(6, 396);
+            this.GenerateEventScheduleButton.Name = "GenerateEventScheduleButton";
+            this.GenerateEventScheduleButton.Size = new System.Drawing.Size(338, 40);
+            this.GenerateEventScheduleButton.TabIndex = 19;
+            this.GenerateEventScheduleButton.Text = "Generate Event Schedule";
+            this.GenerateEventScheduleButton.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.linkLabel1);
-            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.RegisteredEventContactEmail);
+            this.panel3.Controls.Add(this.RegisteredEventContactLabel);
             this.panel3.Location = new System.Drawing.Point(6, 286);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 23);
             this.panel3.TabIndex = 18;
             // 
-            // linkLabel1
+            // RegisteredEventContactEmail
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(56, 4);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(37, 13);
-            this.linkLabel1.TabIndex = 15;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "[email]";
+            this.RegisteredEventContactEmail.AutoSize = true;
+            this.RegisteredEventContactEmail.Location = new System.Drawing.Point(56, 4);
+            this.RegisteredEventContactEmail.Name = "RegisteredEventContactEmail";
+            this.RegisteredEventContactEmail.Size = new System.Drawing.Size(37, 13);
+            this.RegisteredEventContactEmail.TabIndex = 15;
+            this.RegisteredEventContactEmail.TabStop = true;
+            this.RegisteredEventContactEmail.Text = "[email]";
             // 
-            // label9
+            // RegisteredEventContactLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 13);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Contact:";
+            this.RegisteredEventContactLabel.AutoSize = true;
+            this.RegisteredEventContactLabel.Location = new System.Drawing.Point(3, 4);
+            this.RegisteredEventContactLabel.Name = "RegisteredEventContactLabel";
+            this.RegisteredEventContactLabel.Size = new System.Drawing.Size(47, 13);
+            this.RegisteredEventContactLabel.TabIndex = 14;
+            this.RegisteredEventContactLabel.Text = "Contact:";
             // 
-            // button3
+            // RegisteredEventDateHeaderButton
             // 
-            this.button3.BackColor = System.Drawing.Color.PaleGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(262, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Date";
-            this.button3.UseVisualStyleBackColor = false;
+            this.RegisteredEventDateHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.RegisteredEventDateHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisteredEventDateHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisteredEventDateHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RegisteredEventDateHeaderButton.Location = new System.Drawing.Point(262, 20);
+            this.RegisteredEventDateHeaderButton.Name = "RegisteredEventDateHeaderButton";
+            this.RegisteredEventDateHeaderButton.Size = new System.Drawing.Size(82, 23);
+            this.RegisteredEventDateHeaderButton.TabIndex = 9;
+            this.RegisteredEventDateHeaderButton.Text = "Date";
+            this.RegisteredEventDateHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // listView2
+            // UserRegisteredEventsListView
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.UserRegisteredEventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
             this.columnHeader3});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(6, 42);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(338, 245);
-            this.listView2.TabIndex = 7;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.UserRegisteredEventsListView.FullRowSelect = true;
+            this.UserRegisteredEventsListView.GridLines = true;
+            this.UserRegisteredEventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.UserRegisteredEventsListView.HideSelection = false;
+            this.UserRegisteredEventsListView.Location = new System.Drawing.Point(6, 42);
+            this.UserRegisteredEventsListView.Name = "UserRegisteredEventsListView";
+            this.UserRegisteredEventsListView.Size = new System.Drawing.Size(338, 245);
+            this.UserRegisteredEventsListView.TabIndex = 7;
+            this.UserRegisteredEventsListView.UseCompatibleStateImageBehavior = false;
+            this.UserRegisteredEventsListView.View = System.Windows.Forms.View.Details;
+            this.UserRegisteredEventsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.UserRegisteredEventsListView_ItemSelectionChanged);
             // 
             // columnHeader2
             // 
@@ -693,28 +694,28 @@
             this.columnHeader3.Text = "Date";
             this.columnHeader3.Width = 80;
             // 
-            // button4
+            // RegisteredEventNameHeaderButton
             // 
-            this.button4.BackColor = System.Drawing.Color.PaleGreen;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(6, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(257, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Event Name";
-            this.button4.UseVisualStyleBackColor = false;
+            this.RegisteredEventNameHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.RegisteredEventNameHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisteredEventNameHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisteredEventNameHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RegisteredEventNameHeaderButton.Location = new System.Drawing.Point(6, 20);
+            this.RegisteredEventNameHeaderButton.Name = "RegisteredEventNameHeaderButton";
+            this.RegisteredEventNameHeaderButton.Size = new System.Drawing.Size(257, 23);
+            this.RegisteredEventNameHeaderButton.TabIndex = 8;
+            this.RegisteredEventNameHeaderButton.Text = "Event Name";
+            this.RegisteredEventNameHeaderButton.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.DeleteSelectedEventButton);
+            this.groupBox1.Controls.Add(this.EditSelectedEventButton);
             this.groupBox1.Controls.Add(this.CreateNewEventButton);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.CreatedEventDateHeaderButton);
+            this.groupBox1.Controls.Add(this.CreatedEventNameHeaderButton);
+            this.groupBox1.Controls.Add(this.UserCreatedEventsListView);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(350, 457);
@@ -725,76 +726,76 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.CreatedEventTimeLabel);
+            this.panel1.Controls.Add(this.CreatedEventAttendees);
+            this.panel1.Controls.Add(this.CreatedEventTime);
+            this.panel1.Controls.Add(this.CreatedEventAttendeeLabel);
             this.panel1.Location = new System.Drawing.Point(6, 286);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(338, 23);
             this.panel1.TabIndex = 16;
             // 
-            // label1
+            // CreatedEventTimeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Time:";
+            this.CreatedEventTimeLabel.AutoSize = true;
+            this.CreatedEventTimeLabel.Location = new System.Drawing.Point(3, 4);
+            this.CreatedEventTimeLabel.Name = "CreatedEventTimeLabel";
+            this.CreatedEventTimeLabel.Size = new System.Drawing.Size(33, 13);
+            this.CreatedEventTimeLabel.TabIndex = 12;
+            this.CreatedEventTimeLabel.Text = "Time:";
             // 
-            // label7
+            // CreatedEventAttendees
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "[count]";
+            this.CreatedEventAttendees.AutoSize = true;
+            this.CreatedEventAttendees.Location = new System.Drawing.Point(293, 4);
+            this.CreatedEventAttendees.Name = "CreatedEventAttendees";
+            this.CreatedEventAttendees.Size = new System.Drawing.Size(40, 13);
+            this.CreatedEventAttendees.TabIndex = 15;
+            this.CreatedEventAttendees.Text = "[count]";
             // 
-            // label6
+            // CreatedEventTime
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "[time]";
+            this.CreatedEventTime.AutoSize = true;
+            this.CreatedEventTime.Location = new System.Drawing.Point(42, 4);
+            this.CreatedEventTime.Name = "CreatedEventTime";
+            this.CreatedEventTime.Size = new System.Drawing.Size(32, 13);
+            this.CreatedEventTime.TabIndex = 13;
+            this.CreatedEventTime.Text = "[time]";
             // 
-            // label8
+            // CreatedEventAttendeeLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(229, 4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Attendees:";
+            this.CreatedEventAttendeeLabel.AutoSize = true;
+            this.CreatedEventAttendeeLabel.Location = new System.Drawing.Point(229, 4);
+            this.CreatedEventAttendeeLabel.Name = "CreatedEventAttendeeLabel";
+            this.CreatedEventAttendeeLabel.Size = new System.Drawing.Size(58, 13);
+            this.CreatedEventAttendeeLabel.TabIndex = 14;
+            this.CreatedEventAttendeeLabel.Text = "Attendees:";
             // 
-            // button7
+            // DeleteSelectedEventButton
             // 
-            this.button7.BackColor = System.Drawing.Color.Salmon;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(175, 326);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(169, 30);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Delete Selected Event";
-            this.button7.UseVisualStyleBackColor = false;
+            this.DeleteSelectedEventButton.BackColor = System.Drawing.Color.Salmon;
+            this.DeleteSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.DeleteSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DeleteSelectedEventButton.Location = new System.Drawing.Point(175, 326);
+            this.DeleteSelectedEventButton.Name = "DeleteSelectedEventButton";
+            this.DeleteSelectedEventButton.Size = new System.Drawing.Size(169, 30);
+            this.DeleteSelectedEventButton.TabIndex = 11;
+            this.DeleteSelectedEventButton.Text = "Delete Selected Event";
+            this.DeleteSelectedEventButton.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // EditSelectedEventButton
             // 
-            this.button6.BackColor = System.Drawing.Color.SandyBrown;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(6, 326);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(170, 30);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Edit Selected Event";
-            this.button6.UseVisualStyleBackColor = false;
+            this.EditSelectedEventButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.EditSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.EditSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.EditSelectedEventButton.Location = new System.Drawing.Point(6, 326);
+            this.EditSelectedEventButton.Name = "EditSelectedEventButton";
+            this.EditSelectedEventButton.Size = new System.Drawing.Size(170, 30);
+            this.EditSelectedEventButton.TabIndex = 10;
+            this.EditSelectedEventButton.Text = "Edit Selected Event";
+            this.EditSelectedEventButton.UseVisualStyleBackColor = false;
             // 
             // CreateNewEventButton
             // 
@@ -810,47 +811,48 @@
             this.CreateNewEventButton.UseVisualStyleBackColor = false;
             this.CreateNewEventButton.Click += new System.EventHandler(this.CreateNewEventButton_Click);
             // 
-            // button2
+            // CreatedEventDateHeaderButton
             // 
-            this.button2.BackColor = System.Drawing.Color.PaleGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(262, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Date";
-            this.button2.UseVisualStyleBackColor = false;
+            this.CreatedEventDateHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.CreatedEventDateHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreatedEventDateHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedEventDateHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.CreatedEventDateHeaderButton.Location = new System.Drawing.Point(262, 20);
+            this.CreatedEventDateHeaderButton.Name = "CreatedEventDateHeaderButton";
+            this.CreatedEventDateHeaderButton.Size = new System.Drawing.Size(82, 23);
+            this.CreatedEventDateHeaderButton.TabIndex = 6;
+            this.CreatedEventDateHeaderButton.Text = "Date";
+            this.CreatedEventDateHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // CreatedEventNameHeaderButton
             // 
-            this.button1.BackColor = System.Drawing.Color.PaleGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(6, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(257, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Event Name";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CreatedEventNameHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.CreatedEventNameHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreatedEventNameHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedEventNameHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.CreatedEventNameHeaderButton.Location = new System.Drawing.Point(6, 20);
+            this.CreatedEventNameHeaderButton.Name = "CreatedEventNameHeaderButton";
+            this.CreatedEventNameHeaderButton.Size = new System.Drawing.Size(257, 23);
+            this.CreatedEventNameHeaderButton.TabIndex = 5;
+            this.CreatedEventNameHeaderButton.Text = "Event Name";
+            this.CreatedEventNameHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // listView1
+            // UserCreatedEventsListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.UserCreatedEventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.CreatedEventNameColumn,
             this.CreatedEventDateColumn});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 42);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(338, 245);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.UserCreatedEventsListView.FullRowSelect = true;
+            this.UserCreatedEventsListView.GridLines = true;
+            this.UserCreatedEventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.UserCreatedEventsListView.HideSelection = false;
+            this.UserCreatedEventsListView.Location = new System.Drawing.Point(6, 42);
+            this.UserCreatedEventsListView.Name = "UserCreatedEventsListView";
+            this.UserCreatedEventsListView.Size = new System.Drawing.Size(338, 245);
+            this.UserCreatedEventsListView.TabIndex = 1;
+            this.UserCreatedEventsListView.UseCompatibleStateImageBehavior = false;
+            this.UserCreatedEventsListView.View = System.Windows.Forms.View.Details;
+            this.UserCreatedEventsListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.UserCreatedEventsListView_ItemSelectionChanged);
             // 
             // CreatedEventNameColumn
             // 
@@ -1224,6 +1226,7 @@
             this.MainTabControl.SelectedIndex = 0;
             this.MainTabControl.Size = new System.Drawing.Size(734, 495);
             this.MainTabControl.TabIndex = 2;
+            this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControl_SelectedIndexChanged);
             // 
             // MainVolunteerForm
             // 
@@ -1321,25 +1324,24 @@
         private System.Windows.Forms.ToolStripStatusLabel RegisteredEventCountLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button CreatedEventNameHeaderButton;
+        private System.Windows.Forms.ListView UserCreatedEventsListView;
         private System.Windows.Forms.ColumnHeader CreatedEventNameColumn;
         private System.Windows.Forms.ColumnHeader CreatedEventDateColumn;
         private System.Windows.Forms.ToolStripMenuItem UpdateInformationMenuItem;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Button RegisteredEventDateHeaderButton;
+        private System.Windows.Forms.ListView UserRegisteredEventsListView;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button RegisteredEventNameHeaderButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label CreatedEventTimeLabel;
+        private System.Windows.Forms.Label CreatedEventTime;
+        private System.Windows.Forms.Label CreatedEventAttendees;
+        private System.Windows.Forms.Label CreatedEventAttendeeLabel;
+        private System.Windows.Forms.Button DeleteSelectedEventButton;
+        private System.Windows.Forms.Button EditSelectedEventButton;
         private System.Windows.Forms.Button CreateNewEventButton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button21;
@@ -1368,10 +1370,11 @@
         private System.Windows.Forms.ListView listView4;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button UnregisterFromEventButton;
+        private System.Windows.Forms.Button ViewSelectedEventButton;
+        private System.Windows.Forms.Button GenerateEventScheduleButton;
+        private System.Windows.Forms.LinkLabel RegisteredEventContactEmail;
+        private System.Windows.Forms.Label RegisteredEventContactLabel;
+        private System.Windows.Forms.Button CreatedEventDateHeaderButton;
     }
 }

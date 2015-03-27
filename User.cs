@@ -12,9 +12,11 @@ namespace IT_3883_Volunteer_App
         private string _Username { set; get; }
         private string _PhoneNumber { set; get; }
         private bool _IsAdmin { get; set; }
-        private Tuple<string,string> _FullName { set; get; }
+        private Tuple<string, string> _FullName { set; get; }
+        private List<Event> _CreatedEvents { get; set; }
+        private List<Event> _RegisteredEvents { get; set; }
 
-        public User(int id, string username, string firstName, string lastName, 
+        public User(int id, string username, string firstName, string lastName,
             string phoneNumber, bool isAdmin)
         {
             this._Id = id;
@@ -22,6 +24,20 @@ namespace IT_3883_Volunteer_App
             this._PhoneNumber = phoneNumber;
             this._IsAdmin = isAdmin;
             this._FullName = new Tuple<string, string>(firstName, lastName);
+            this._CreatedEvents = new List<Event>();
+            this._RegisteredEvents = new List<Event>();
+        }
+
+        public List<Event> RegisteredEvents
+        {
+            get { return this._RegisteredEvents; }
+            set { this._RegisteredEvents = value; }
+        }
+
+        public List<Event> CreatedEvents
+        {
+            get { return this._CreatedEvents; }
+            set { this._CreatedEvents = value; }
         }
 
         public int Id
@@ -44,7 +60,7 @@ namespace IT_3883_Volunteer_App
             get { return this._PhoneNumber; }
         }
 
-        public Tuple<string,string> FullName
+        public Tuple<string, string> FullName
         {
             get { return this._FullName; }
         }

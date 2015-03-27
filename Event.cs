@@ -10,37 +10,38 @@ namespace IT_3883_Volunteer_App
     public class Event
     {
         private int _Id { set; get; }
-        private int _Attendees { set; get; }
         private double _Duration { get; set; }
         private string _Name { set; get; }
         private string _Date { set; get; }
         private DateTime _StartTime { set; get; }
         private DateTime _EndTime { set; get; }
         private string _Location { set; get; }
-        private User _ContactInformation { set; get; }
+        private User _Creator { set; get; }
+        private List<User> _RegisteredUsers { get; set; }
 
-        public Event(int id, int attendees, string name, string date,
+        public Event(int id, string name, string date,
             string time, string location, double duration, User contact)
         {
             this._Id = id;
-            this._Attendees = attendees;
             this._Name = name;
             this._Date = date;
             this._StartTime = DateTime.ParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture);
             this._Duration = duration;
             this._EndTime = this._StartTime.AddHours(duration);
             this._Location = location;
-            this._ContactInformation = contact;
+            this._Creator = contact;
+            this._RegisteredUsers = new List<User>();
+        }
+
+        public List<User> RegisteredUsers
+        {
+            get { return this._RegisteredUsers; }
+            set { this._RegisteredUsers = value; }
         }
 
         public int Id
         {
             get { return this._Id; }
-        }
-
-        public int Attendees
-        {
-            get { return this._Attendees; }
         }
 
         public string Name
@@ -73,9 +74,9 @@ namespace IT_3883_Volunteer_App
             get { return this._Location; }
         }
 
-        public User ContactInformation
+        public User Creator
         {
-            get { return this._ContactInformation; }
+            get { return this._Creator; }
         }
     }
 }

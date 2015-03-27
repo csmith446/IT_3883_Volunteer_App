@@ -12,25 +12,62 @@ namespace IT_3883_Volunteer_App
 {
     public partial class MainVolunteerForm : Form
     {
-        //todo: move list to user class
         private List<int> SelectedEventIds;
+        private List<User> UserList;
+        private List<Event> EventList;
 
         private LoginForm LoginForm;
         private User CurrentUser;
-        private enum OrderBy { Name, NameDesc, Location, LocationDesc, Date, DateDesc };
+
+        private enum OrderBy 
+        { 
+            Name, 
+            NameDesc, 
+            Location, 
+            LocationDesc, 
+            Date, 
+            DateDesc 
+        };
 
         public MainVolunteerForm(User user, LoginForm loginScreen)
         {
             InitializeComponent();
-            CurrentUser = user;
             LoginForm = loginScreen;
 
+            SetupAllLists(user);
             SetLoggedInUserName();
             SetRegisteredCountLable();
             SetAdminStatus();
 
             SelectedEventIds = new List<int>();
             LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked);
+        }
+
+        private void SetupAllLists(User user)
+        {
+            UserList = DatabaseManager.GetAllUsers();
+            EventList = DatabaseManager.GetAllEvents();
+
+            foreach (var usr in UserList)
+            {
+                foreach (var evt in EventList)
+                {
+                    if (evt.Creator.Id == usr.Id)
+                    {
+                        usr.CreatedEvents.Add(evt);
+                        usr.RegisteredEvents.Add(evt);
+                        evt.RegisteredUsers.Add(usr);
+                    }
+                    else if (DatabaseManager.IsUserRegisteredForEvent(evt.Id, usr.Id))
+                    {
+                        usr.RegisteredEvents.Add(evt);
+                        evt.RegisteredUsers.Add(usr);
+                    }
+                }
+
+                if (usr.Id == user.Id)
+                    CurrentUser = usr;
+            }
         }
 
         private void SetAdminStatus()
@@ -56,12 +93,12 @@ namespace IT_3883_Volunteer_App
             LogInStatusLabel.Text = loginStatus;
         }
 
-        OrderBy CurrentOrder;
+        private OrderBy CurrentOrder;
         private void LoadCurrentEvents(bool hideRegistered, OrderBy order = OrderBy.Date)
         {
             VolunteerEventsListView.Items.Clear();
             VolunteerEventsListView.CheckBoxes = true;
-            var currentEvents = DatabaseManager.GetCurrentEvents();
+            var currentEvents = DatabaseManager.GetAllEvents();
             var RegisteredEventItems = new List<ListViewItem>();
             switch (order)
             {
@@ -96,11 +133,11 @@ namespace IT_3883_Volunteer_App
                 item.SubItems.Add(evt.StartTime.ToString("hh:mm tt") + 
                     " - " + evt.EndTime.ToString("hh:mm tt"));
                 item.SubItems.Add(String.Format("{1}, {0}",
-                    evt.ContactInformation.FullName.Item1,
-                    evt.ContactInformation.FullName.Item2));
-                item.SubItems.Add(evt.ContactInformation.PhoneNumber);
-                item.SubItems.Add(evt.ContactInformation.Username);
-                item.SubItems.Add(evt.Attendees.ToString());
+                    evt.Creator.FullName.Item1,
+                    evt.Creator.FullName.Item2));
+                item.SubItems.Add(evt.Creator.PhoneNumber);
+                item.SubItems.Add(evt.Creator.Username);
+                item.SubItems.Add(evt.RegisteredUsers.Count.ToString());
                 item.SubItems.Add(evt.Id.ToString());
                 item.SubItems.Add(evt.Duration.ToString());
 
@@ -341,6 +378,106 @@ namespace IT_3883_Volunteer_App
         {
             var createEventForm = new CreateEventForm(CurrentUser);
             createEventForm.ShowDialog();
+        }
+
+        private void GetAllUsersToManage()
+        {
+
+        }
+
+        private void GetAllEventsToManage()
+        {
+
+        }
+
+        private void LoadUserCreatedEvents()
+        {
+            //todo: order items with header buttons
+            var createdEvents = CurrentUser.CreatedEvents;
+            foreach (var evt in createdEvents)
+            {
+                //visible subitems
+                var item = new ListViewItem(evt.Name);
+                item.SubItems.Add(evt.Date);
+
+                //'invisible' subitems
+                item.SubItems.Add(evt.StartTime.ToString("hh:mm tt") +
+                    " - " + evt.EndTime.ToString("hh:mm tt"));
+                item.SubItems.Add(evt.RegisteredUsers.Count.ToString());
+                UserCreatedEventsListView.Items.Add(item);
+            }
+
+            if (UserCreatedEventsListView.Items.Count == 0)
+            {
+                UserCreatedEventsListView.Items.Add(new ListViewItem("You haven't created any events"));
+                UserCreatedEventsListView.Enabled = false;
+            }
+            else
+            {
+                UserCreatedEventsListView.Enabled = true;
+            }
+
+            UserCreatedEventsListView.Items[0].Selected = true;
+        }
+
+        private void LoadUserRegisteredEvents()
+        {
+            //todo: order items with header buttons
+            var registeredEvents = CurrentUser.RegisteredEvents;
+            foreach (var evt in registeredEvents)
+            {
+                //visible subitems
+                var item = new ListViewItem(evt.Name);
+                item.SubItems.Add(evt.Date);
+
+                //'invisible' subitems
+                item.SubItems.Add(evt.Creator.Username);
+
+                if(!CurrentUser.CreatedEvents.Contains(evt))
+                    UserRegisteredEventsListView.Items.Add(item);
+            }
+
+            if (UserRegisteredEventsListView.Items.Count == 0)
+            {
+                UserRegisteredEventsListView.Items.Add(new ListViewItem("You aren't registered for any events"));
+                UserRegisteredEventsListView.Enabled = false;
+            }
+            else
+            {
+                UserRegisteredEventsListView.Enabled = true;
+            }
+
+            UserRegisteredEventsListView.Items[0].Selected = true;
+        }
+
+        private void MainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(MainTabControl.SelectedIndex)
+            {
+                case 0:
+                    LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked, CurrentOrder);
+                    break;
+                case 1:
+                    LoadUserCreatedEvents();
+                    LoadUserRegisteredEvents();
+                    break;
+                case 2:
+                    GetAllEventsToManage();
+                    GetAllUsersToManage();
+                    break;
+            }
+        }
+
+        private void UserCreatedEventsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            EditSelectedEventButton.Enabled = UserCreatedEventsListView.SelectedItems.Count > 0;
+            DeleteSelectedEventButton.Enabled = UserCreatedEventsListView.SelectedItems.Count > 0;
+        }
+
+        private void UserRegisteredEventsListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            ViewSelectedEventButton.Enabled = UserRegisteredEventsListView.SelectedItems.Count > 0;
+            UnregisterFromEventButton.Enabled = UserRegisteredEventsListView.SelectedItems.Count > 0;
         }
     }
 }
