@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.EmailAddressTextBox = new System.Windows.Forms.TextBox();
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.LoginFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +43,7 @@
             this.LoginButton = new System.Windows.Forms.Button();
             this.CreateUserButton = new System.Windows.Forms.Button();
             this.ErrorMessageLabel = new System.Windows.Forms.Label();
-            this.MainMenuStrip.SuspendLayout();
+            this.LoginFormMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // EmailAddressTextBox
@@ -53,18 +53,18 @@
             this.EmailAddressTextBox.Size = new System.Drawing.Size(225, 20);
             this.EmailAddressTextBox.TabIndex = 0;
             // 
-            // MainMenuStrip
+            // LoginFormMenuStrip
             // 
-            this.MainMenuStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LoginFormMenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.LoginFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuItem,
             this.UsersMenuItem,
             this.HelpMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(334, 24);
-            this.MainMenuStrip.TabIndex = 1;
-            this.MainMenuStrip.Text = "menuStrip1";
+            this.LoginFormMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.LoginFormMenuStrip.Name = "LoginFormMenuStrip";
+            this.LoginFormMenuStrip.Size = new System.Drawing.Size(334, 24);
+            this.LoginFormMenuStrip.TabIndex = 1;
+            this.LoginFormMenuStrip.Text = "menuStrip1";
             // 
             // FileMenuItem
             // 
@@ -187,7 +187,7 @@
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.EmailAddressLabel);
             this.Controls.Add(this.EmailAddressTextBox);
-            this.Controls.Add(this.MainMenuStrip);
+            this.Controls.Add(this.LoginFormMenuStrip);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -197,8 +197,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Login";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
+            this.LoginFormMenuStrip.ResumeLayout(false);
+            this.LoginFormMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,7 +207,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox EmailAddressTextBox;
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        private System.Windows.Forms.MenuStrip LoginFormMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem FileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UsersMenuItem;

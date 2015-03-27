@@ -12,9 +12,15 @@ namespace IT_3883_Volunteer_App
 {
     public partial class CreateUserForm : Form
     {
+        //todo: input validation, error providers, database query
         public CreateUserForm()
         {
             InitializeComponent();
+        }
+
+        private void CancelNewUserButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

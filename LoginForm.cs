@@ -45,8 +45,9 @@ namespace IT_3883_Volunteer_App
             string username = EmailAddressTextBox.Text.ToLower();
             string password = PasswordTextBox.Text;
 
-            try
-            {
+            //todo: get rid of try/catch
+            //try
+            //{
                 if (ValidateForm(username, password))
                 {
                     if (UserLoggedIn(username, password))
@@ -60,19 +61,23 @@ namespace IT_3883_Volunteer_App
                     }
                     else
                     {
-                        throw new Exception("The email and password does not match.");
+                        //throw new Exception("The email and password do not match.");
+                        ErrorMessageLabel.Text = "The email and password do not match.";
+                        ErrorMessageLabel.Visible = true;
                     }
                 }
                 else
                 {
-                    throw new Exception("The email and password cannot be blank.");
+                    //throw new Exception("The email and password cannot be blank.");
+                    ErrorMessageLabel.Text = "The email and password cannot be blank.";
+                    ErrorMessageLabel.Visible = true;
                 }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageLabel.Text = ex.Message;
-                ErrorMessageLabel.Visible = true;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ErrorMessageLabel.Text = ex.Message;
+            //    ErrorMessageLabel.Visible = true;
+            //}
 
             EmailAddressTextBox.Clear();
             PasswordTextBox.Clear();

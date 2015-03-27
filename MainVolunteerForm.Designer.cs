@@ -33,7 +33,7 @@
             this.MainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.LogInStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.RegisteredEventCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,30 +44,30 @@
             this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.AdminTab = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.AdminRegisterUserButton = new System.Windows.Forms.Button();
+            this.AdminDeleteEventButton = new System.Windows.Forms.Button();
+            this.AdminEditEventButton = new System.Windows.Forms.Button();
+            this.AdminGnerateReportButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.AdminEventContactEmail = new System.Windows.Forms.LinkLabel();
+            this.AdminEventCreatorLabel = new System.Windows.Forms.Label();
+            this.AdminEventDateHeaderButton = new System.Windows.Forms.Button();
+            this.AdminEventListView = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button15 = new System.Windows.Forms.Button();
+            this.AdminEventNameHeaderButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.AdminUserCreatedEventLabel = new System.Windows.Forms.Label();
+            this.AdminUserRegisteredEvents = new System.Windows.Forms.Label();
+            this.AdminUserCreatedEvents = new System.Windows.Forms.Label();
+            this.AdminUserRegisteredEventLabel = new System.Windows.Forms.Label();
+            this.AdminDeleteUserButton = new System.Windows.Forms.Button();
+            this.AdminEditUserButton = new System.Windows.Forms.Button();
             this.AdminCreateUserButton = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.listView4 = new System.Windows.Forms.ListView();
+            this.AdminUserNameHeaderButton = new System.Windows.Forms.Button();
+            this.AdminUserAccountHeaderButton = new System.Windows.Forms.Button();
+            this.AdminUserListView = new System.Windows.Forms.ListView();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MyEventsTab = new System.Windows.Forms.TabPage();
@@ -129,7 +129,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.MainStatusStrip.SuspendLayout();
-            this.MainMenuStrip.SuspendLayout();
+            this.MainFormMenuStrip.SuspendLayout();
             this.AdminTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -175,17 +175,17 @@
             this.RegisteredEventCountLabel.Text = "[registered count]";
             this.RegisteredEventCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // MainMenuStrip
+            // MainFormMenuStrip
             // 
-            this.MainMenuStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainFormMenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.MainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuItem,
             this.UsersMenuItem,
             this.HelpMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(734, 24);
-            this.MainMenuStrip.TabIndex = 1;
+            this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MainFormMenuStrip.Name = "MainFormMenuStrip";
+            this.MainFormMenuStrip.Size = new System.Drawing.Size(734, 24);
+            this.MainFormMenuStrip.TabIndex = 1;
             // 
             // FileMenuItem
             // 
@@ -254,14 +254,14 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button21);
-            this.groupBox3.Controls.Add(this.button11);
-            this.groupBox3.Controls.Add(this.button12);
-            this.groupBox3.Controls.Add(this.button13);
+            this.groupBox3.Controls.Add(this.AdminRegisterUserButton);
+            this.groupBox3.Controls.Add(this.AdminDeleteEventButton);
+            this.groupBox3.Controls.Add(this.AdminEditEventButton);
+            this.groupBox3.Controls.Add(this.AdminGnerateReportButton);
             this.groupBox3.Controls.Add(this.panel2);
-            this.groupBox3.Controls.Add(this.button14);
-            this.groupBox3.Controls.Add(this.listView3);
-            this.groupBox3.Controls.Add(this.button15);
+            this.groupBox3.Controls.Add(this.AdminEventDateHeaderButton);
+            this.groupBox3.Controls.Add(this.AdminEventListView);
+            this.groupBox3.Controls.Add(this.AdminEventNameHeaderButton);
             this.groupBox3.Location = new System.Drawing.Point(370, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(350, 457);
@@ -269,115 +269,118 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Manage Events";
             // 
-            // button21
+            // AdminRegisterUserButton
             // 
-            this.button21.BackColor = System.Drawing.Color.SandyBrown;
-            this.button21.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button21.Location = new System.Drawing.Point(229, 326);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(113, 30);
-            this.button21.TabIndex = 22;
-            this.button21.Text = "Register User";
-            this.button21.UseVisualStyleBackColor = false;
+            this.AdminRegisterUserButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.AdminRegisterUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminRegisterUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminRegisterUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminRegisterUserButton.Location = new System.Drawing.Point(229, 326);
+            this.AdminRegisterUserButton.Name = "AdminRegisterUserButton";
+            this.AdminRegisterUserButton.Size = new System.Drawing.Size(113, 30);
+            this.AdminRegisterUserButton.TabIndex = 22;
+            this.AdminRegisterUserButton.Text = "Register User";
+            this.AdminRegisterUserButton.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // AdminDeleteEventButton
             // 
-            this.button11.BackColor = System.Drawing.Color.Salmon;
-            this.button11.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button11.Location = new System.Drawing.Point(118, 326);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(112, 30);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "Delete Event";
-            this.button11.UseVisualStyleBackColor = false;
+            this.AdminDeleteEventButton.BackColor = System.Drawing.Color.Salmon;
+            this.AdminDeleteEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminDeleteEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminDeleteEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminDeleteEventButton.Location = new System.Drawing.Point(118, 326);
+            this.AdminDeleteEventButton.Name = "AdminDeleteEventButton";
+            this.AdminDeleteEventButton.Size = new System.Drawing.Size(112, 30);
+            this.AdminDeleteEventButton.TabIndex = 21;
+            this.AdminDeleteEventButton.Text = "Delete Event";
+            this.AdminDeleteEventButton.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // AdminEditEventButton
             // 
-            this.button12.BackColor = System.Drawing.Color.SandyBrown;
-            this.button12.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Location = new System.Drawing.Point(6, 326);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(113, 30);
-            this.button12.TabIndex = 20;
-            this.button12.Text = "Edit Event";
-            this.button12.UseVisualStyleBackColor = false;
+            this.AdminEditEventButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.AdminEditEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminEditEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminEditEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminEditEventButton.Location = new System.Drawing.Point(6, 326);
+            this.AdminEditEventButton.Name = "AdminEditEventButton";
+            this.AdminEditEventButton.Size = new System.Drawing.Size(113, 30);
+            this.AdminEditEventButton.TabIndex = 20;
+            this.AdminEditEventButton.Text = "Edit Event";
+            this.AdminEditEventButton.UseVisualStyleBackColor = false;
+            this.AdminEditEventButton.Click += new System.EventHandler(this.AdminEditEventButton_Click);
             // 
-            // button13
+            // AdminGnerateReportButton
             // 
-            this.button13.BackColor = System.Drawing.Color.PaleGreen;
-            this.button13.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button13.Location = new System.Drawing.Point(6, 396);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(338, 40);
-            this.button13.TabIndex = 19;
-            this.button13.Text = "Generate Event Report";
-            this.button13.UseVisualStyleBackColor = false;
+            this.AdminGnerateReportButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.AdminGnerateReportButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminGnerateReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminGnerateReportButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminGnerateReportButton.Location = new System.Drawing.Point(6, 396);
+            this.AdminGnerateReportButton.Name = "AdminGnerateReportButton";
+            this.AdminGnerateReportButton.Size = new System.Drawing.Size(338, 40);
+            this.AdminGnerateReportButton.TabIndex = 19;
+            this.AdminGnerateReportButton.Text = "Generate Event Report";
+            this.AdminGnerateReportButton.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.linkLabel2);
-            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.AdminEventContactEmail);
+            this.panel2.Controls.Add(this.AdminEventCreatorLabel);
             this.panel2.Location = new System.Drawing.Point(6, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(338, 23);
             this.panel2.TabIndex = 18;
             // 
-            // linkLabel2
+            // AdminEventContactEmail
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(71, 4);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(37, 13);
-            this.linkLabel2.TabIndex = 15;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "[email]";
+            this.AdminEventContactEmail.AutoSize = true;
+            this.AdminEventContactEmail.Location = new System.Drawing.Point(71, 4);
+            this.AdminEventContactEmail.Name = "AdminEventContactEmail";
+            this.AdminEventContactEmail.Size = new System.Drawing.Size(37, 13);
+            this.AdminEventContactEmail.TabIndex = 15;
+            this.AdminEventContactEmail.TabStop = true;
+            this.AdminEventContactEmail.Text = "[email]";
             // 
-            // label12
+            // AdminEventCreatorLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 4);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "Created By:";
+            this.AdminEventCreatorLabel.AutoSize = true;
+            this.AdminEventCreatorLabel.Location = new System.Drawing.Point(3, 4);
+            this.AdminEventCreatorLabel.Name = "AdminEventCreatorLabel";
+            this.AdminEventCreatorLabel.Size = new System.Drawing.Size(62, 13);
+            this.AdminEventCreatorLabel.TabIndex = 14;
+            this.AdminEventCreatorLabel.Text = "Created By:";
             // 
-            // button14
+            // AdminEventDateHeaderButton
             // 
-            this.button14.BackColor = System.Drawing.Color.PaleGreen;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button14.Location = new System.Drawing.Point(262, 20);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(82, 23);
-            this.button14.TabIndex = 9;
-            this.button14.Text = "Date";
-            this.button14.UseVisualStyleBackColor = false;
+            this.AdminEventDateHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.AdminEventDateHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminEventDateHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminEventDateHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AdminEventDateHeaderButton.Location = new System.Drawing.Point(262, 20);
+            this.AdminEventDateHeaderButton.Name = "AdminEventDateHeaderButton";
+            this.AdminEventDateHeaderButton.Size = new System.Drawing.Size(82, 23);
+            this.AdminEventDateHeaderButton.TabIndex = 9;
+            this.AdminEventDateHeaderButton.Text = "Date";
+            this.AdminEventDateHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // listView3
+            // AdminEventListView
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.AdminEventListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
             this.columnHeader7});
-            this.listView3.FullRowSelect = true;
-            this.listView3.GridLines = true;
-            this.listView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(6, 42);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(338, 245);
-            this.listView3.TabIndex = 7;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.AdminEventListView.FullRowSelect = true;
+            this.AdminEventListView.GridLines = true;
+            this.AdminEventListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.AdminEventListView.HideSelection = false;
+            this.AdminEventListView.Location = new System.Drawing.Point(6, 42);
+            this.AdminEventListView.MultiSelect = false;
+            this.AdminEventListView.Name = "AdminEventListView";
+            this.AdminEventListView.Size = new System.Drawing.Size(338, 245);
+            this.AdminEventListView.TabIndex = 7;
+            this.AdminEventListView.UseCompatibleStateImageBehavior = false;
+            this.AdminEventListView.View = System.Windows.Forms.View.Details;
+            this.AdminEventListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.AdminEventListView_ItemSelectionChanged);
             // 
             // columnHeader6
             // 
@@ -389,28 +392,28 @@
             this.columnHeader7.Text = "Date";
             this.columnHeader7.Width = 80;
             // 
-            // button15
+            // AdminEventNameHeaderButton
             // 
-            this.button15.BackColor = System.Drawing.Color.PaleGreen;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button15.Location = new System.Drawing.Point(6, 20);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(257, 23);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "Event Name";
-            this.button15.UseVisualStyleBackColor = false;
+            this.AdminEventNameHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.AdminEventNameHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminEventNameHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminEventNameHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AdminEventNameHeaderButton.Location = new System.Drawing.Point(6, 20);
+            this.AdminEventNameHeaderButton.Name = "AdminEventNameHeaderButton";
+            this.AdminEventNameHeaderButton.Size = new System.Drawing.Size(257, 23);
+            this.AdminEventNameHeaderButton.TabIndex = 8;
+            this.AdminEventNameHeaderButton.Text = "Event Name";
+            this.AdminEventNameHeaderButton.UseVisualStyleBackColor = false;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Controls.Add(this.button17);
+            this.groupBox4.Controls.Add(this.AdminDeleteUserButton);
+            this.groupBox4.Controls.Add(this.AdminEditUserButton);
             this.groupBox4.Controls.Add(this.AdminCreateUserButton);
-            this.groupBox4.Controls.Add(this.button19);
-            this.groupBox4.Controls.Add(this.button20);
-            this.groupBox4.Controls.Add(this.listView4);
+            this.groupBox4.Controls.Add(this.AdminUserNameHeaderButton);
+            this.groupBox4.Controls.Add(this.AdminUserAccountHeaderButton);
+            this.groupBox4.Controls.Add(this.AdminUserListView);
             this.groupBox4.Location = new System.Drawing.Point(6, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(350, 457);
@@ -421,76 +424,77 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.AdminUserCreatedEventLabel);
+            this.panel4.Controls.Add(this.AdminUserRegisteredEvents);
+            this.panel4.Controls.Add(this.AdminUserCreatedEvents);
+            this.panel4.Controls.Add(this.AdminUserRegisteredEventLabel);
             this.panel4.Location = new System.Drawing.Point(6, 286);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(338, 23);
             this.panel4.TabIndex = 16;
             // 
-            // label13
+            // AdminUserCreatedEventLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 4);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 13);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Created Events:";
+            this.AdminUserCreatedEventLabel.AutoSize = true;
+            this.AdminUserCreatedEventLabel.Location = new System.Drawing.Point(3, 4);
+            this.AdminUserCreatedEventLabel.Name = "AdminUserCreatedEventLabel";
+            this.AdminUserCreatedEventLabel.Size = new System.Drawing.Size(83, 13);
+            this.AdminUserCreatedEventLabel.TabIndex = 12;
+            this.AdminUserCreatedEventLabel.Text = "Created Events:";
             // 
-            // label14
+            // AdminUserRegisteredEvents
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(293, 4);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "[count]";
+            this.AdminUserRegisteredEvents.AutoSize = true;
+            this.AdminUserRegisteredEvents.Location = new System.Drawing.Point(293, 4);
+            this.AdminUserRegisteredEvents.Name = "AdminUserRegisteredEvents";
+            this.AdminUserRegisteredEvents.Size = new System.Drawing.Size(40, 13);
+            this.AdminUserRegisteredEvents.TabIndex = 15;
+            this.AdminUserRegisteredEvents.Text = "[count]";
             // 
-            // label15
+            // AdminUserCreatedEvents
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(92, 4);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 13);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "[count]";
+            this.AdminUserCreatedEvents.AutoSize = true;
+            this.AdminUserCreatedEvents.Location = new System.Drawing.Point(92, 4);
+            this.AdminUserCreatedEvents.Name = "AdminUserCreatedEvents";
+            this.AdminUserCreatedEvents.Size = new System.Drawing.Size(40, 13);
+            this.AdminUserCreatedEvents.TabIndex = 13;
+            this.AdminUserCreatedEvents.Text = "[count]";
             // 
-            // label16
+            // AdminUserRegisteredEventLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(208, 4);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(79, 13);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Registered For:";
+            this.AdminUserRegisteredEventLabel.AutoSize = true;
+            this.AdminUserRegisteredEventLabel.Location = new System.Drawing.Point(208, 4);
+            this.AdminUserRegisteredEventLabel.Name = "AdminUserRegisteredEventLabel";
+            this.AdminUserRegisteredEventLabel.Size = new System.Drawing.Size(79, 13);
+            this.AdminUserRegisteredEventLabel.TabIndex = 14;
+            this.AdminUserRegisteredEventLabel.Text = "Registered For:";
             // 
-            // button16
+            // AdminDeleteUserButton
             // 
-            this.button16.BackColor = System.Drawing.Color.Salmon;
-            this.button16.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button16.Location = new System.Drawing.Point(175, 326);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(169, 30);
-            this.button16.TabIndex = 11;
-            this.button16.Text = "Delete User";
-            this.button16.UseVisualStyleBackColor = false;
+            this.AdminDeleteUserButton.BackColor = System.Drawing.Color.Salmon;
+            this.AdminDeleteUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminDeleteUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminDeleteUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminDeleteUserButton.Location = new System.Drawing.Point(175, 326);
+            this.AdminDeleteUserButton.Name = "AdminDeleteUserButton";
+            this.AdminDeleteUserButton.Size = new System.Drawing.Size(169, 30);
+            this.AdminDeleteUserButton.TabIndex = 11;
+            this.AdminDeleteUserButton.Text = "Delete User";
+            this.AdminDeleteUserButton.UseVisualStyleBackColor = false;
             // 
-            // button17
+            // AdminEditUserButton
             // 
-            this.button17.BackColor = System.Drawing.Color.SandyBrown;
-            this.button17.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button17.Location = new System.Drawing.Point(6, 326);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(170, 30);
-            this.button17.TabIndex = 10;
-            this.button17.Text = "Edit User";
-            this.button17.UseVisualStyleBackColor = false;
+            this.AdminEditUserButton.BackColor = System.Drawing.Color.SandyBrown;
+            this.AdminEditUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.AdminEditUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminEditUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminEditUserButton.Location = new System.Drawing.Point(6, 326);
+            this.AdminEditUserButton.Name = "AdminEditUserButton";
+            this.AdminEditUserButton.Size = new System.Drawing.Size(170, 30);
+            this.AdminEditUserButton.TabIndex = 10;
+            this.AdminEditUserButton.Text = "Edit User";
+            this.AdminEditUserButton.UseVisualStyleBackColor = false;
+            this.AdminEditUserButton.Click += new System.EventHandler(this.AdminEditUserButton_Click);
             // 
             // AdminCreateUserButton
             // 
@@ -506,47 +510,49 @@
             this.AdminCreateUserButton.UseVisualStyleBackColor = false;
             this.AdminCreateUserButton.Click += new System.EventHandler(this.AdminCreateUserButton_Click);
             // 
-            // button19
+            // AdminUserNameHeaderButton
             // 
-            this.button19.BackColor = System.Drawing.Color.PaleGreen;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button19.Location = new System.Drawing.Point(207, 20);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(137, 23);
-            this.button19.TabIndex = 6;
-            this.button19.Text = "Full Name";
-            this.button19.UseVisualStyleBackColor = false;
+            this.AdminUserNameHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.AdminUserNameHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminUserNameHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminUserNameHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AdminUserNameHeaderButton.Location = new System.Drawing.Point(207, 20);
+            this.AdminUserNameHeaderButton.Name = "AdminUserNameHeaderButton";
+            this.AdminUserNameHeaderButton.Size = new System.Drawing.Size(137, 23);
+            this.AdminUserNameHeaderButton.TabIndex = 6;
+            this.AdminUserNameHeaderButton.Text = "Full Name";
+            this.AdminUserNameHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // button20
+            // AdminUserAccountHeaderButton
             // 
-            this.button20.BackColor = System.Drawing.Color.PaleGreen;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button20.Location = new System.Drawing.Point(6, 20);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(202, 23);
-            this.button20.TabIndex = 5;
-            this.button20.Text = "Account Email";
-            this.button20.UseVisualStyleBackColor = false;
+            this.AdminUserAccountHeaderButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.AdminUserAccountHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminUserAccountHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminUserAccountHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AdminUserAccountHeaderButton.Location = new System.Drawing.Point(6, 20);
+            this.AdminUserAccountHeaderButton.Name = "AdminUserAccountHeaderButton";
+            this.AdminUserAccountHeaderButton.Size = new System.Drawing.Size(202, 23);
+            this.AdminUserAccountHeaderButton.TabIndex = 5;
+            this.AdminUserAccountHeaderButton.Text = "Account Email";
+            this.AdminUserAccountHeaderButton.UseVisualStyleBackColor = false;
             // 
-            // listView4
+            // AdminUserListView
             // 
-            this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.AdminUserListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader8,
             this.columnHeader9});
-            this.listView4.FullRowSelect = true;
-            this.listView4.GridLines = true;
-            this.listView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.listView4.HideSelection = false;
-            this.listView4.Location = new System.Drawing.Point(6, 42);
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(338, 245);
-            this.listView4.TabIndex = 1;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
+            this.AdminUserListView.FullRowSelect = true;
+            this.AdminUserListView.GridLines = true;
+            this.AdminUserListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.AdminUserListView.HideSelection = false;
+            this.AdminUserListView.Location = new System.Drawing.Point(6, 42);
+            this.AdminUserListView.MultiSelect = false;
+            this.AdminUserListView.Name = "AdminUserListView";
+            this.AdminUserListView.Size = new System.Drawing.Size(338, 245);
+            this.AdminUserListView.TabIndex = 1;
+            this.AdminUserListView.UseCompatibleStateImageBehavior = false;
+            this.AdminUserListView.View = System.Windows.Forms.View.Details;
+            this.AdminUserListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.AdminUserListView_ItemSelectionChanged);
             // 
             // columnHeader8
             // 
@@ -584,7 +590,7 @@
             this.groupBox2.Size = new System.Drawing.Size(350, 457);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Registered Events";
+            this.groupBox2.Text = "Registered Events (Not Created)";
             // 
             // UnregisterFromEventButton
             // 
@@ -598,6 +604,7 @@
             this.UnregisterFromEventButton.TabIndex = 21;
             this.UnregisterFromEventButton.Text = "Unregiester From Event";
             this.UnregisterFromEventButton.UseVisualStyleBackColor = false;
+            this.UnregisterFromEventButton.Click += new System.EventHandler(this.UnregisterFromEventButton_Click);
             // 
             // ViewSelectedEventButton
             // 
@@ -611,6 +618,7 @@
             this.ViewSelectedEventButton.TabIndex = 20;
             this.ViewSelectedEventButton.Text = "View Selected Event";
             this.ViewSelectedEventButton.UseVisualStyleBackColor = false;
+            this.ViewSelectedEventButton.Click += new System.EventHandler(this.ViewSelectedEventButton_Click);
             // 
             // GenerateEventScheduleButton
             // 
@@ -677,6 +685,7 @@
             this.UserRegisteredEventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.UserRegisteredEventsListView.HideSelection = false;
             this.UserRegisteredEventsListView.Location = new System.Drawing.Point(6, 42);
+            this.UserRegisteredEventsListView.MultiSelect = false;
             this.UserRegisteredEventsListView.Name = "UserRegisteredEventsListView";
             this.UserRegisteredEventsListView.Size = new System.Drawing.Size(338, 245);
             this.UserRegisteredEventsListView.TabIndex = 7;
@@ -783,6 +792,7 @@
             this.DeleteSelectedEventButton.TabIndex = 11;
             this.DeleteSelectedEventButton.Text = "Delete Selected Event";
             this.DeleteSelectedEventButton.UseVisualStyleBackColor = false;
+            this.DeleteSelectedEventButton.Click += new System.EventHandler(this.DeleteSelectedEventButton_Click);
             // 
             // EditSelectedEventButton
             // 
@@ -796,6 +806,7 @@
             this.EditSelectedEventButton.TabIndex = 10;
             this.EditSelectedEventButton.Text = "Edit Selected Event";
             this.EditSelectedEventButton.UseVisualStyleBackColor = false;
+            this.EditSelectedEventButton.Click += new System.EventHandler(this.EditSelectedEventButton_Click);
             // 
             // CreateNewEventButton
             // 
@@ -847,6 +858,7 @@
             this.UserCreatedEventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.UserCreatedEventsListView.HideSelection = false;
             this.UserCreatedEventsListView.Location = new System.Drawing.Point(6, 42);
+            this.UserCreatedEventsListView.MultiSelect = false;
             this.UserCreatedEventsListView.Name = "UserCreatedEventsListView";
             this.UserCreatedEventsListView.Size = new System.Drawing.Size(338, 245);
             this.UserCreatedEventsListView.TabIndex = 1;
@@ -1235,7 +1247,7 @@
             this.ClientSize = new System.Drawing.Size(734, 541);
             this.Controls.Add(this.MainTabControl);
             this.Controls.Add(this.MainStatusStrip);
-            this.Controls.Add(this.MainMenuStrip);
+            this.Controls.Add(this.MainFormMenuStrip);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1246,8 +1258,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.MainStatusStrip.ResumeLayout(false);
             this.MainStatusStrip.PerformLayout();
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
+            this.MainFormMenuStrip.ResumeLayout(false);
+            this.MainFormMenuStrip.PerformLayout();
             this.AdminTab.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1279,7 +1291,7 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip MainStatusStrip;
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        private System.Windows.Forms.MenuStrip MainFormMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem FileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UsersMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HelpMenuItem;
@@ -1344,30 +1356,30 @@
         private System.Windows.Forms.Button EditSelectedEventButton;
         private System.Windows.Forms.Button CreateNewEventButton;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button AdminRegisterUserButton;
+        private System.Windows.Forms.Button AdminDeleteEventButton;
+        private System.Windows.Forms.Button AdminEditEventButton;
+        private System.Windows.Forms.Button AdminGnerateReportButton;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.LinkLabel AdminEventContactEmail;
+        private System.Windows.Forms.Label AdminEventCreatorLabel;
+        private System.Windows.Forms.Button AdminEventDateHeaderButton;
+        private System.Windows.Forms.ListView AdminEventListView;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button AdminEventNameHeaderButton;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Label AdminUserCreatedEventLabel;
+        private System.Windows.Forms.Label AdminUserRegisteredEvents;
+        private System.Windows.Forms.Label AdminUserCreatedEvents;
+        private System.Windows.Forms.Label AdminUserRegisteredEventLabel;
+        private System.Windows.Forms.Button AdminDeleteUserButton;
+        private System.Windows.Forms.Button AdminEditUserButton;
         private System.Windows.Forms.Button AdminCreateUserButton;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.ListView listView4;
+        private System.Windows.Forms.Button AdminUserNameHeaderButton;
+        private System.Windows.Forms.Button AdminUserAccountHeaderButton;
+        private System.Windows.Forms.ListView AdminUserListView;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Button UnregisterFromEventButton;

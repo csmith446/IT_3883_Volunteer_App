@@ -14,10 +14,16 @@ namespace IT_3883_Volunteer_App
     {
         private User Creator;
 
+        //todo: input validation, error providers, create event query
         public CreateEventForm(User currentUser)
         {
             InitializeComponent();
             Creator = currentUser;
+        }
+
+        private void CancelNewEventButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace IT_3883_Volunteer_App
 {
-    public partial class EditUserForm : Form
+    public partial class ViewUserForm : Form
     {
         //todo: input validation, error provider, and save changes functionality
         private User UserToEdit;
-        public EditUserForm(User user, bool adminEdit)
+        public ViewUserForm(User user, bool adminEdit)
         {
             InitializeComponent();
             string title = string.Format("{1}, {0} : ", user.FullName.Item1, user.FullName.Item2);

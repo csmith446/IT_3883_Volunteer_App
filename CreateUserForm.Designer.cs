@@ -38,7 +38,7 @@
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.CreateUserButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelNewUserButton = new System.Windows.Forms.Button();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.EmailAddressLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
@@ -130,18 +130,19 @@
             this.CreateUserButton.Text = "Create User Account";
             this.CreateUserButton.UseVisualStyleBackColor = false;
             // 
-            // CancelButton
+            // CancelNewUserButton
             // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.CancelNewUserButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.BackColor = System.Drawing.Color.Salmon;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Location = new System.Drawing.Point(65, 187);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(145, 40);
-            this.CancelButton.TabIndex = 20;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelNewUserButton.BackColor = System.Drawing.Color.Salmon;
+            this.CancelNewUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelNewUserButton.Location = new System.Drawing.Point(65, 187);
+            this.CancelNewUserButton.Name = "CancelNewUserButton";
+            this.CancelNewUserButton.Size = new System.Drawing.Size(145, 40);
+            this.CancelNewUserButton.TabIndex = 20;
+            this.CancelNewUserButton.Text = "Cancel";
+            this.CancelNewUserButton.UseVisualStyleBackColor = false;
+            this.CancelNewUserButton.Click += new System.EventHandler(this.CancelNewUserButton_Click);
             // 
             // PhoneNumberLabel
             // 
@@ -194,7 +195,7 @@
             this.Controls.Add(this.LastNameTextBox);
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.CreateUserButton);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelNewUserButton);
             this.Controls.Add(this.PhoneNumberLabel);
             this.Controls.Add(this.EmailAddressLabel);
             this.Controls.Add(this.LastNameLabel);
@@ -220,7 +221,7 @@
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.Button CreateUserButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelNewUserButton;
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Label EmailAddressLabel;
         private System.Windows.Forms.Label LastNameLabel;

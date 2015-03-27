@@ -31,7 +31,7 @@
             this.LocationTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.CreateEventButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelNewEventButton = new System.Windows.Forms.Button();
             this.StartTimeLabel = new System.Windows.Forms.Label();
             this.LocationLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -69,18 +69,19 @@
             this.CreateEventButton.Text = "Create Event";
             this.CreateEventButton.UseVisualStyleBackColor = false;
             // 
-            // CancelButton
+            // CancelNewEventButton
             // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.CancelNewEventButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.BackColor = System.Drawing.Color.Salmon;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Location = new System.Drawing.Point(65, 116);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(145, 40);
-            this.CancelButton.TabIndex = 36;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelNewEventButton.BackColor = System.Drawing.Color.Salmon;
+            this.CancelNewEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelNewEventButton.Location = new System.Drawing.Point(65, 116);
+            this.CancelNewEventButton.Name = "CancelNewEventButton";
+            this.CancelNewEventButton.Size = new System.Drawing.Size(145, 40);
+            this.CancelNewEventButton.TabIndex = 36;
+            this.CancelNewEventButton.Text = "Cancel";
+            this.CancelNewEventButton.UseVisualStyleBackColor = false;
+            this.CancelNewEventButton.Click += new System.EventHandler(this.CancelNewEventButton_Click);
             // 
             // StartTimeLabel
             // 
@@ -170,7 +171,7 @@
             this.Controls.Add(this.LocationTextBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.CreateEventButton);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelNewEventButton);
             this.Controls.Add(this.StartTimeLabel);
             this.Controls.Add(this.LocationLabel);
             this.Controls.Add(this.NameLabel);
@@ -188,7 +189,7 @@
         private System.Windows.Forms.TextBox LocationTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Button CreateEventButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelNewEventButton;
         private System.Windows.Forms.Label StartTimeLabel;
         private System.Windows.Forms.Label LocationLabel;
         private System.Windows.Forms.Label NameLabel;
