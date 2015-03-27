@@ -129,25 +129,6 @@ namespace IT_3883_Volunteer_App
         }
 
         /// <summary>
-        /// Gets the ID for from the user's username.
-        /// </summary>
-        /// <param name="username">The user's username</param>
-        static public string GetUserIdFromUsername(string username)
-        {
-            string id = null;
-            using (var connection = GetConnection())
-            {
-                string query = "SELECT Users.ID FROM Users WHERE Users.Username = @username";
-                var cmd = connection.CreateCommand();
-                cmd.CommandText = query;
-                cmd.Parameters.AddWithValue("@username", username);
-
-                id = cmd.ExecuteScalar().ToString();
-            }
-            return id;
-        }
-
-        /// <summary>
         /// Registers a user for an event.
         /// </summary>
         /// <param name="user_id"></param>

@@ -237,10 +237,7 @@ namespace IT_3883_Volunteer_App
         private void ValidatePhoneNumber_Validating(object sender, CancelEventArgs e)
         {
             if (!ValidatePhoneNumber())
-            {
-                MainErrorProvider.SetError(PhoneNumberTextBox, PHONE_ERROR);
-                MainErrorProvider.SetIconPadding(EmailAddressTextBox, 10);
-            }
+                SetErrorForControl(PhoneNumberTextBox, PHONE_ERROR);
             else
             {
                 MainErrorProvider.SetError(PhoneNumberTextBox, "");

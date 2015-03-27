@@ -20,10 +20,10 @@ namespace IT_3883_Volunteer_App
 
         private void About_Load(object sender, EventArgs e)
         {
-            string version = lblVersionNumber.Text.Replace("[version]",
+            string version = VersionNumberLabel.Text.Replace("[version]",
                 typeof(LoginForm).Assembly.GetName().Version.ToString());
 
-            lblVersionNumber.Text = version;
+            VersionNumberLabel.Text = version;
         }
     }
 }

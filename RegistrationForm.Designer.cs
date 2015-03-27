@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblFirstName = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
             this.ContactInformationGroupBox = new System.Windows.Forms.GroupBox();
             this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PhoneNumberLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
             this.AccountInformationGroupBox = new System.Windows.Forms.GroupBox();
             this.EmailAddressTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.ConfirmPasswordLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.EmailAddressLabel = new System.Windows.Forms.Label();
             this.SubmitInformationButton = new System.Windows.Forms.Button();
             this.CancelRegistrationButton = new System.Windows.Forms.Button();
             this.MainErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -51,14 +51,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.MainErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblFirstName
+            // FirstNameLabel
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(12, 30);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(63, 13);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "First Name: ";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(12, 30);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.FirstNameLabel.TabIndex = 0;
+            this.FirstNameLabel.Text = "First Name: ";
             // 
             // ContactInformationGroupBox
             // 
@@ -67,9 +67,9 @@
             this.ContactInformationGroupBox.Controls.Add(this.PhoneNumberTextBox);
             this.ContactInformationGroupBox.Controls.Add(this.LastNameTextBox);
             this.ContactInformationGroupBox.Controls.Add(this.FirstNameTextBox);
-            this.ContactInformationGroupBox.Controls.Add(this.label3);
-            this.ContactInformationGroupBox.Controls.Add(this.label1);
-            this.ContactInformationGroupBox.Controls.Add(this.lblFirstName);
+            this.ContactInformationGroupBox.Controls.Add(this.PhoneNumberLabel);
+            this.ContactInformationGroupBox.Controls.Add(this.LastNameLabel);
+            this.ContactInformationGroupBox.Controls.Add(this.FirstNameLabel);
             this.ContactInformationGroupBox.Location = new System.Drawing.Point(12, 12);
             this.ContactInformationGroupBox.Name = "ContactInformationGroupBox";
             this.ContactInformationGroupBox.Size = new System.Drawing.Size(344, 125);
@@ -106,23 +106,23 @@
             this.FirstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForName_KeyPress);
             this.FirstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateFirstName_Validating);
             // 
-            // label3
+            // PhoneNumberLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Phone Number:";
+            this.PhoneNumberLabel.AutoSize = true;
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(12, 90);
+            this.PhoneNumberLabel.Name = "PhoneNumberLabel";
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(81, 13);
+            this.PhoneNumberLabel.TabIndex = 3;
+            this.PhoneNumberLabel.Text = "Phone Number:";
             // 
-            // label1
+            // LastNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Last Name: ";
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(12, 60);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(64, 13);
+            this.LastNameLabel.TabIndex = 1;
+            this.LastNameLabel.Text = "Last Name: ";
             // 
             // AccountInformationGroupBox
             // 
@@ -131,9 +131,9 @@
             this.AccountInformationGroupBox.Controls.Add(this.EmailAddressTextBox);
             this.AccountInformationGroupBox.Controls.Add(this.PasswordTextBox);
             this.AccountInformationGroupBox.Controls.Add(this.ConfirmPasswordTextBox);
-            this.AccountInformationGroupBox.Controls.Add(this.label4);
-            this.AccountInformationGroupBox.Controls.Add(this.label6);
-            this.AccountInformationGroupBox.Controls.Add(this.label7);
+            this.AccountInformationGroupBox.Controls.Add(this.ConfirmPasswordLabel);
+            this.AccountInformationGroupBox.Controls.Add(this.PasswordLabel);
+            this.AccountInformationGroupBox.Controls.Add(this.EmailAddressLabel);
             this.AccountInformationGroupBox.Location = new System.Drawing.Point(12, 158);
             this.AccountInformationGroupBox.Name = "AccountInformationGroupBox";
             this.AccountInformationGroupBox.Size = new System.Drawing.Size(344, 127);
@@ -169,40 +169,40 @@
             this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
             this.ConfirmPasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateConfirmedPassword_Validating);
             // 
-            // label4
+            // ConfirmPasswordLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Confirm Password:";
+            this.ConfirmPasswordLabel.AutoSize = true;
+            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(12, 93);
+            this.ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
+            this.ConfirmPasswordLabel.Size = new System.Drawing.Size(94, 13);
+            this.ConfirmPasswordLabel.TabIndex = 2;
+            this.ConfirmPasswordLabel.Text = "Confirm Password:";
             // 
-            // label6
+            // PasswordLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Password:";
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Location = new System.Drawing.Point(11, 61);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(56, 13);
+            this.PasswordLabel.TabIndex = 1;
+            this.PasswordLabel.Text = "Password:";
             // 
-            // label7
+            // EmailAddressLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Email Address:";
+            this.EmailAddressLabel.AutoSize = true;
+            this.EmailAddressLabel.Location = new System.Drawing.Point(12, 30);
+            this.EmailAddressLabel.Name = "EmailAddressLabel";
+            this.EmailAddressLabel.Size = new System.Drawing.Size(76, 13);
+            this.EmailAddressLabel.TabIndex = 0;
+            this.EmailAddressLabel.Text = "Email Address:";
             // 
             // SubmitInformationButton
             // 
-            this.SubmitInformationButton.BackColor = System.Drawing.Color.LightGreen;
+            this.SubmitInformationButton.BackColor = System.Drawing.Color.PaleGreen;
             this.SubmitInformationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitInformationButton.Location = new System.Drawing.Point(210, 307);
+            this.SubmitInformationButton.Location = new System.Drawing.Point(185, 308);
             this.SubmitInformationButton.Name = "SubmitInformationButton";
-            this.SubmitInformationButton.Size = new System.Drawing.Size(100, 40);
+            this.SubmitInformationButton.Size = new System.Drawing.Size(125, 40);
             this.SubmitInformationButton.TabIndex = 6;
             this.SubmitInformationButton.Text = "Submit Information";
             this.SubmitInformationButton.UseVisualStyleBackColor = false;
@@ -210,12 +210,12 @@
             // 
             // CancelRegistrationButton
             // 
-            this.CancelRegistrationButton.BackColor = System.Drawing.Color.LightCoral;
+            this.CancelRegistrationButton.BackColor = System.Drawing.Color.Salmon;
             this.CancelRegistrationButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelRegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelRegistrationButton.Location = new System.Drawing.Point(60, 307);
+            this.CancelRegistrationButton.Location = new System.Drawing.Point(61, 308);
             this.CancelRegistrationButton.Name = "CancelRegistrationButton";
-            this.CancelRegistrationButton.Size = new System.Drawing.Size(100, 40);
+            this.CancelRegistrationButton.Size = new System.Drawing.Size(125, 40);
             this.CancelRegistrationButton.TabIndex = 7;
             this.CancelRegistrationButton.Text = "Cancel Registration";
             this.CancelRegistrationButton.UseVisualStyleBackColor = false;
@@ -235,6 +235,7 @@
             this.Controls.Add(this.SubmitInformationButton);
             this.Controls.Add(this.AccountInformationGroupBox);
             this.Controls.Add(this.ContactInformationGroupBox);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -253,20 +254,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.GroupBox ContactInformationGroupBox;
         private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.TextBox FirstNameTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PhoneNumberLabel;
+        private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.GroupBox AccountInformationGroupBox;
         private System.Windows.Forms.TextBox EmailAddressTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox ConfirmPasswordTextBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label ConfirmPasswordLabel;
+        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Label EmailAddressLabel;
         private System.Windows.Forms.Button SubmitInformationButton;
         private System.Windows.Forms.Button CancelRegistrationButton;
         private System.Windows.Forms.ErrorProvider MainErrorProvider;

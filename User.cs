@@ -17,7 +17,7 @@ namespace IT_3883_Volunteer_App
         public User(int id, string username, string firstName, string lastName, 
             string phoneNumber, bool isAdmin)
         {
-            this.Id = id;
+            this._Id = id;
             this._Username = username;
             this._PhoneNumber = phoneNumber;
             this._IsAdmin = isAdmin;
@@ -27,10 +27,6 @@ namespace IT_3883_Volunteer_App
         public int Id
         {
             get { return this._Id; }
-            protected set
-            {
-                this._Id = value;
-            }
         }
 
         public bool IsAdmin

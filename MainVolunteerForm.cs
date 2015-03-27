@@ -30,12 +30,11 @@ namespace IT_3883_Volunteer_App
             SetAdminStatus();
 
             SelectedEventIds = new List<int>();
-            LoadCurrentEvents(false);
+            LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked);
         }
 
         private void SetAdminStatus()
         {
-            //if (!DatabaseManager.IsUserAdmin(CurrentUser.Id))
             if (!CurrentUser.IsAdmin)
             {
                 MainTabControl.TabPages.Remove(AdminTab);
@@ -136,15 +135,15 @@ namespace IT_3883_Volunteer_App
             }
 
             HideRegisteredEventsCheckBox.Visible = RegisteredEventItems.Count > 0;
-            RedEntryLabel.Visible = RegisteredEventItems.Count > 0;
+            RedEventEntryLabel.Visible = RegisteredEventItems.Count > 0;
             VolunteerEventsListView.Items[0].Selected = true;
         }
 
         private void FixHeaderColors()
         {
-            EventNameHeaderButton.BackColor = (CurrentOrder == OrderBy.Name) ? Color.Green : Color.LightGreen;
-            EventDateHeaderButton.BackColor = (CurrentOrder == OrderBy.Date) ? Color.Green : Color.LightGreen;
-            EventLocationHeaderButton.BackColor = (CurrentOrder == OrderBy.Location) ? Color.Green : Color.LightGreen;
+            UpcomingEventNameHeaderButton.BackColor = (CurrentOrder == OrderBy.Name) ? Color.Green : Color.LightGreen;
+            UpcomingEventDateHeaderButton.BackColor = (CurrentOrder == OrderBy.Date) ? Color.Green : Color.LightGreen;
+            UpcomingEventLocationHeaderButton.BackColor = (CurrentOrder == OrderBy.Location) ? Color.Green : Color.LightGreen;
         }
 
         private void VolunteerEventsListView_ItemSelectionChanged(object sender,
@@ -155,17 +154,17 @@ namespace IT_3883_Volunteer_App
             {
                 if (item.Selected)
                 {
-                    EventTimeLabel.Text = item.SubItems[3].Text;
-                    ContactNameLabel.Text = item.SubItems[4].Text;
-                    ContactNumberLabel.Text = item.SubItems[5].Text;
-                    ContactEmailLink.Text = item.SubItems[6].Text;
-                    AttendeesLabel.Text = item.SubItems[7].Text;
+                    DetailedEventTimeLabel.Text = item.SubItems[3].Text;
+                    DetailedContactNameLabel.Text = item.SubItems[4].Text;
+                    DetailedContactNumberLabel.Text = item.SubItems[5].Text;
+                    DetailedContactEmailLink.Text = item.SubItems[6].Text;
+                    DetailedAttendeesLabel.Text = item.SubItems[7].Text;
                 }
             }
             else
             {
-                EventTimeLabel.Text = AttendeesLabel.Text = ContactNameLabel.Text =
-                    ContactNumberLabel.Text = ContactEmailLink.Text = "";
+                DetailedEventTimeLabel.Text = DetailedAttendeesLabel.Text = DetailedContactNameLabel.Text =
+                    DetailedContactNumberLabel.Text = DetailedContactEmailLink.Text = "";
             }
         }
 
@@ -252,19 +251,19 @@ namespace IT_3883_Volunteer_App
 
         private void ContactNameLabel_Hover(object sender, EventArgs e)
         {
-            if (ContactNameLabel.Text.Contains("..."))
+            if (DetailedContactNameLabel.Text.Contains("..."))
             {
                 var name = VolunteerEventsListView.SelectedItems[0].SubItems[4].Text;
-                MainToolTip.Show(name, ContactNameLabel);
+                MainToolTip.Show(name, DetailedContactNameLabel);
             }
         }
 
         private void ContactEmailLabel_Hover(object sender, EventArgs e)
         {
-            if (ContactEmailLink.Text.Contains("..."))
+            if (DetailedContactEmailLink.Text.Contains("..."))
             {
                 var name = VolunteerEventsListView.SelectedItems[0].SubItems[6].Text;
-                MainToolTip.Show(name, ContactEmailLink);
+                MainToolTip.Show(name, DetailedContactEmailLink);
             }
         }
 
@@ -314,6 +313,34 @@ namespace IT_3883_Volunteer_App
                 LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked);
 
             VolunteerEventsListView.Focus();
+        }
+
+        private void OpenEditUserForm()
+        {
+            var editUserForm = new EditUserForm(CurrentUser, false);
+            editUserForm.ShowDialog(this);
+        }
+
+        private void UpdateInformationMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenEditUserForm();
+        }
+        
+        private void OpenCreateUserForm()
+        {
+            var createUserForm = new CreateUserForm();
+            createUserForm.ShowDialog();
+        }
+
+        private void AdminCreateUserButton_Click(object sender, EventArgs e)
+        {
+            OpenCreateUserForm();
+        }
+
+        private void CreateNewEventButton_Click(object sender, EventArgs e)
+        {
+            var createEventForm = new CreateEventForm(CurrentUser);
+            createEventForm.ShowDialog();
         }
     }
 }

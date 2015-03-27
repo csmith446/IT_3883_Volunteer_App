@@ -140,7 +140,7 @@
             // 
             // LoginButton
             // 
-            this.LoginButton.BackColor = System.Drawing.Color.LightGreen;
+            this.LoginButton.BackColor = System.Drawing.Color.PaleGreen;
             this.LoginButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginButton.Location = new System.Drawing.Point(166, 141);
@@ -153,7 +153,7 @@
             // 
             // CreateUserButton
             // 
-            this.CreateUserButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.CreateUserButton.BackColor = System.Drawing.Color.SandyBrown;
             this.CreateUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.CreateUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateUserButton.Location = new System.Drawing.Point(42, 141);
@@ -188,6 +188,7 @@
             this.Controls.Add(this.EmailAddressLabel);
             this.Controls.Add(this.EmailAddressTextBox);
             this.Controls.Add(this.MainMenuStrip);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
