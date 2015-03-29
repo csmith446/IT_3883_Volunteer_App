@@ -13,6 +13,8 @@ namespace IT_3883_Volunteer_App
     public partial class ViewUserForm : Form
     {
         //todo: input validation, error provider, and save changes functionality
+        //todo: dialog result
+
         private User UserToEdit;
         public ViewUserForm(User user, bool adminEdit)
         {

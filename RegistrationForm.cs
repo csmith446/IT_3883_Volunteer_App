@@ -299,7 +299,8 @@ namespace IT_3883_Volunteer_App
 
         private void RegistrationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to cancel your registration?",
+            //todo: center messagebox on parent or create form for messagebox
+            if (MessageBox.Show(this, "Are you sure you want to cancel your registration?",
                 "Cancel Registration", MessageBoxButtons.YesNo) == DialogResult.No)
                 e.Cancel = true;
         }

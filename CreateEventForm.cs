@@ -15,6 +15,8 @@ namespace IT_3883_Volunteer_App
         private User Creator;
 
         //todo: input validation, error providers, create event query
+        //todo: dialog result
+
         public CreateEventForm(User currentUser)
         {
             InitializeComponent();

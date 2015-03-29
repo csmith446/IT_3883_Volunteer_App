@@ -54,7 +54,6 @@
             this.UserIsAdminCheckBox.TabIndex = 31;
             this.UserIsAdminCheckBox.Text = "User is an Administrator";
             this.UserIsAdminCheckBox.UseVisualStyleBackColor = true;
-            this.UserIsAdminCheckBox.Visible = false;
             // 
             // ConfirmPasswordTextBox
             // 

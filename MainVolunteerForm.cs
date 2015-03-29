@@ -12,9 +12,9 @@ namespace IT_3883_Volunteer_App
 {
     public partial class MainVolunteerForm : Form
     {
-        private List<int> SelectedEventIds;
-        private List<User> UserList;
-        private List<Event> EventList;
+        private List<int> SelectedEventIds;     //list for 'saving' selected events when sorting
+        private List<User> UserList;            //main User list - pulled form database
+        private List<Event> EventList;          //main event list - pulled from database
 
         private LoginForm LoginForm;
         private User CurrentUser;
@@ -34,16 +34,16 @@ namespace IT_3883_Volunteer_App
             InitializeComponent();
             LoginForm = loginScreen;
 
-            SetupAllLists(user);
+            UpdateLists(user);
             SetLoggedInUserName();
-            SetRegisteredCountLable();
             SetAdminStatus();
 
             SelectedEventIds = new List<int>();
             LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked);
         }
 
-        private void SetupAllLists(User user)
+        //Ties all of the events' users and users' events together
+        private void UpdateLists(User user)
         {
             UserList = DatabaseManager.GetAllUsers();
             EventList = DatabaseManager.GetAllEvents();
@@ -56,7 +56,9 @@ namespace IT_3883_Volunteer_App
                     {
                         usr.CreatedEvents.Add(evt);
                         usr.RegisteredEvents.Add(evt);
+
                         evt.RegisteredUsers.Add(usr);
+                        evt.UpdateCreator(usr);
                     }
                     else if (DatabaseManager.IsUserRegisteredForEvent(evt.Id, usr.Id))
                     {
@@ -68,6 +70,8 @@ namespace IT_3883_Volunteer_App
                 if (usr.Id == user.Id)
                     CurrentUser = usr;
             }
+
+            SetRegisteredCountLable();
         }
 
         private void SetAdminStatus()
@@ -179,15 +183,15 @@ namespace IT_3883_Volunteer_App
 
         private void FixHeaderColors()
         {
-            UpcomingEventNameHeaderButton.BackColor = (CurrentOrder == OrderBy.Name) ? Color.Green : Color.LightGreen;
-            UpcomingEventDateHeaderButton.BackColor = (CurrentOrder == OrderBy.Date) ? Color.Green : Color.LightGreen;
-            UpcomingEventLocationHeaderButton.BackColor = (CurrentOrder == OrderBy.Location) ? Color.Green : Color.LightGreen;
+            UpcomingEventNameHeaderButton.BackColor = (CurrentOrder == OrderBy.Name) ? Color.Green : Color.PaleGreen; ;
+            UpcomingEventDateHeaderButton.BackColor = (CurrentOrder == OrderBy.Date) ? Color.Green : Color.PaleGreen;
+            UpcomingEventLocationHeaderButton.BackColor = (CurrentOrder == OrderBy.Location) ? Color.Green : Color.PaleGreen;
         }
 
         private void VolunteerEventsListView_ItemSelectionChanged(object sender,
             ListViewItemSelectionChangedEventArgs e)
         {
-            //todo: possible make the group box look nicer?
+            //todo: possibly make the group box look nicer?
             var item = e.Item;
             if (item.Text != "There are no new events")
             {
@@ -314,6 +318,8 @@ namespace IT_3883_Volunteer_App
         private void RegisterForSelectedEventsButton_Click(object sender, EventArgs e)
         {
             //todo: generate schedule/print preview and printing
+            //bool generateSchedule = GenerateScheduleCheckBox.Checked;
+
             foreach (ListViewItem item in VolunteerEventsListView.CheckedItems)
             {
                 DatabaseManager.RegisterUserForEvent(CurrentUser.Id, Int32.Parse(item.SubItems[8].Text));
@@ -322,8 +328,7 @@ namespace IT_3883_Volunteer_App
             MessageBox.Show(string.Format("You registered for {0} events!", VolunteerEventsListView.CheckedItems.Count));
             ClearSelectedEvents();
             LoadCurrentEvents(HideRegisteredEventsCheckBox.Checked, CurrentOrder);
-            SetupAllLists(CurrentUser); 
-            SetRegisteredCountLable();
+            UpdateLists(CurrentUser);
         }
 
         private void EventNameHeaderButton_Click(object sender, EventArgs e)
@@ -356,32 +361,70 @@ namespace IT_3883_Volunteer_App
             VolunteerEventsListView.Focus();
         }
 
-        private void OpenEditUserForm()
+        //create a user
+        private DialogResult ShowCreateUserForm()
         {
-            var viewUserForm = new ViewUserForm(CurrentUser, false);
+            var createUserForm = new CreateUserForm();
+            createUserForm.ShowDialog();
+            return createUserForm.DialogResult;
+        }
+
+        //edit a user
+        private DialogResult ShowUserForm(User usr, bool adminEdit = false)
+        {
+            var viewUserForm = new ViewUserForm(usr, adminEdit);
             viewUserForm.ShowDialog(this);
+            return viewUserForm.DialogResult;
+        }
+
+        //create an event
+        private DialogResult ShowCreateEventForm()
+        {
+            var createEventForm = new CreateEventForm(CurrentUser);
+            createEventForm.ShowDialog();
+            return createEventForm.DialogResult;
+        }
+
+        //edit event; users: readOnly = true, admin: readOnly = false
+        private DialogResult ShowEventForm(bool readOnly = false)
+        {
+            var selectedId = (!readOnly) ?
+                Int32.Parse(UserCreatedEventsListView.SelectedItems[0].SubItems[4].Text) :
+                Int32.Parse(UserRegisteredEventsListView.SelectedItems[0].SubItems[3].Text);
+            var events = (readOnly) ? CurrentUser.RegisteredEvents : CurrentUser.CreatedEvents;
+            Event selectedEvent = null;
+
+            foreach (var evt in events)
+            {
+                if (evt.Id == selectedId)
+                {
+                    selectedEvent = evt;
+                    break;
+                }
+            }
+
+            var eventForm = new ViewEventForm(selectedEvent, readOnly);
+            eventForm.ShowDialog();
+            return eventForm.DialogResult;
         }
 
         private void UpdateInformationMenuItem_Click(object sender, EventArgs e)
         {
-            OpenEditUserForm();
-        }
-
-        private void OpenCreateUserForm()
-        {
-            var createUserForm = new CreateUserForm();
-            createUserForm.ShowDialog();
+            ShowUserForm(CurrentUser);
+            //todo: dialog result: if OK then
+            //UpdateLists(CurrentUser);
         }
 
         private void AdminCreateUserButton_Click(object sender, EventArgs e)
         {
-            OpenCreateUserForm();
+            ShowCreateUserForm();
         }
 
         private void CreateNewEventButton_Click(object sender, EventArgs e)
         {
-            var createEventForm = new CreateEventForm(CurrentUser);
-            createEventForm.ShowDialog();
+            ShowCreateEventForm();
+            //todo: dialog result: if ok then
+            //UpdateLists(CurrentUser);
         }
 
         private void GetAllUsersToManage()
@@ -525,7 +568,7 @@ namespace IT_3883_Volunteer_App
             ViewSelectedEventButton.Enabled = false;
             UnregisterFromEventButton.Enabled = false;
 
-            if(e.Item.Text == "You aren't registered for any events")
+            if (e.Item.Text == "You aren't registered for any events")
             {
                 RegisteredEventContactEmail.Text = "";
                 e.Item.Selected = false;
@@ -540,35 +583,18 @@ namespace IT_3883_Volunteer_App
             }
         }
 
-        private void ShowEventForm(bool readOnly = false)
-        {
-            var selectedId = (!readOnly) ?
-                Int32.Parse(UserCreatedEventsListView.SelectedItems[0].SubItems[4].Text) :
-                Int32.Parse(UserRegisteredEventsListView.SelectedItems[0].SubItems[3].Text);
-            var events = (readOnly) ? CurrentUser.RegisteredEvents : CurrentUser.CreatedEvents;
-            Event selectedEvent = null;
-
-            foreach (var evt in events)
-            {
-                if (evt.Id == selectedId)
-                {
-                    selectedEvent = evt;
-                    break;
-                }
-            }
-
-            var eventForm = new ViewEventForm(selectedEvent, readOnly);
-            eventForm.ShowDialog();
-        }
-
         private void EditSelectedEventButton_Click(object sender, EventArgs e)
         {
             ShowEventForm();
+            //todo: dialog result: if OK then
+            //UpdateLists(CurrentUser);
         }
 
         private void ViewSelectedEventButton_Click(object sender, EventArgs e)
         {
             ShowEventForm(true);
+            //todo: dialog result: if OK then
+            //UpdateLists(CurrentUser);
         }
 
         private void AdminUserListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -607,8 +633,9 @@ namespace IT_3883_Volunteer_App
                 }
             }
 
-            var userForm = new ViewUserForm(selectedUser, true);
-            userForm.ShowDialog();
+            ShowUserForm(selectedUser, true);
+            //todo: diagog result: if OK then
+            //UpdateLists(CurrentUser);
         }
 
         private void AdminEditEventButton_Click(object sender, EventArgs e)
@@ -628,16 +655,65 @@ namespace IT_3883_Volunteer_App
 
             var eventForm = new ViewEventForm(selectedEvent, false);
             eventForm.ShowDialog();
+            UpdateLists(CurrentUser);
         }
 
         private void DeleteSelectedEventButton_Click(object sender, EventArgs e)
         {
             //todo: functionality for deleting a created event
+            //UpdateLists(CurrentUser);
         }
 
         private void UnregisterFromEventButton_Click(object sender, EventArgs e)
         {
             //todo: functionality for unregistering for an event
+            //UpdateLists(CurrentUser);
+        }
+
+        private void GenerateEventScheduleButton_Click(object sender, EventArgs e)
+        {
+            //todo: functionality for generating/printing event schedule 
+            //bool includeCreated = IncludeCreatedEventsCheckBox.Checked;
+        }
+
+        private void AdminDeleteUserButton_Click(object sender, EventArgs e)
+        {
+            //odo: admin functionality for deleting a user
+            //UpdateLists(CurrentUser);
+        }
+
+        private void AdminDeleteEventButton_Click(object sender, EventArgs e)
+        {
+            //todo: admin functionality for deleting entire event
+            //UpdateLists(CurrentUser);
+        }
+
+        private void AdminRegisterUserButton_Click(object sender, EventArgs e)
+        {
+            //todo: admin functionality for manually registering a user for an event
+            //UpdateLists(CurrentUser);
+        }
+
+        private void AdminGnerateReportButton_Click(object sender, EventArgs e)
+        {
+            //todo: admin generate event report
+        }
+
+        private void ScrollDownButton_Click(object sender, EventArgs e)
+        {
+            VolunteerEventsListView.Items[10].EnsureVisible();
+            VolunteerEventsListView.Scrollable = true;
+            VolunteerEventsListView.Focus();
+        }
+
+        private void VolunteerEventsListView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+
+        }
+
+        private void VolunteerEventsListView_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        {
+            e.DrawDefault = true;
         }
     }
 }

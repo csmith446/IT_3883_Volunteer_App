@@ -14,6 +14,8 @@ namespace IT_3883_Volunteer_App
     public partial class ViewEventForm : Form
     {
         //todo: input validation and error providers for edits, db update query
+        //todo: dialog result
+
         private Event EventToEdit;
         public ViewEventForm(Event evt, bool readOnly)
         {
@@ -21,6 +23,8 @@ namespace IT_3883_Volunteer_App
             EventToEdit = evt;
 
             SetControls(readOnly);
+            string title = evt.Name;
+            this.Text = title + ((readOnly) ? " : View Detailed Event" : " : Edit Event");
         }
 
         private void SetControls(bool readOnly)

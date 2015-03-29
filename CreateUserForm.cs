@@ -13,6 +13,8 @@ namespace IT_3883_Volunteer_App
     public partial class CreateUserForm : Form
     {
         //todo: input validation, error providers, database query
+        //todo: dialog result
+
         public CreateUserForm()
         {
             InitializeComponent();

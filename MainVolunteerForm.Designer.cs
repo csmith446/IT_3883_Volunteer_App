@@ -72,6 +72,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MyEventsTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.IncludeCreatedEventsCheckBox = new System.Windows.Forms.CheckBox();
             this.UnregisterFromEventButton = new System.Windows.Forms.Button();
             this.ViewSelectedEventButton = new System.Windows.Forms.Button();
             this.GenerateEventScheduleButton = new System.Windows.Forms.Button();
@@ -128,7 +129,6 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MainTabControl = new System.Windows.Forms.TabControl();
-            this.IncludeCreatedEventsCheckBox = new System.Windows.Forms.CheckBox();
             this.MainStatusStrip.SuspendLayout();
             this.MainFormMenuStrip.SuspendLayout();
             this.AdminTab.SuspendLayout();
@@ -285,6 +285,7 @@
             this.AdminRegisterUserButton.TabIndex = 22;
             this.AdminRegisterUserButton.Text = "Register User";
             this.AdminRegisterUserButton.UseVisualStyleBackColor = false;
+            this.AdminRegisterUserButton.Click += new System.EventHandler(this.AdminRegisterUserButton_Click);
             // 
             // AdminDeleteEventButton
             // 
@@ -298,6 +299,7 @@
             this.AdminDeleteEventButton.TabIndex = 21;
             this.AdminDeleteEventButton.Text = "Delete Event";
             this.AdminDeleteEventButton.UseVisualStyleBackColor = false;
+            this.AdminDeleteEventButton.Click += new System.EventHandler(this.AdminDeleteEventButton_Click);
             // 
             // AdminEditEventButton
             // 
@@ -325,6 +327,7 @@
             this.AdminGnerateReportButton.TabIndex = 19;
             this.AdminGnerateReportButton.Text = "Generate Event Report";
             this.AdminGnerateReportButton.UseVisualStyleBackColor = false;
+            this.AdminGnerateReportButton.Click += new System.EventHandler(this.AdminGnerateReportButton_Click);
             // 
             // panel2
             // 
@@ -485,6 +488,7 @@
             this.AdminDeleteUserButton.TabIndex = 11;
             this.AdminDeleteUserButton.Text = "Delete User";
             this.AdminDeleteUserButton.UseVisualStyleBackColor = false;
+            this.AdminDeleteUserButton.Click += new System.EventHandler(this.AdminDeleteUserButton_Click);
             // 
             // AdminEditUserButton
             // 
@@ -597,6 +601,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registered Events (Not Created)";
             // 
+            // IncludeCreatedEventsCheckBox
+            // 
+            this.IncludeCreatedEventsCheckBox.AutoSize = true;
+            this.IncludeCreatedEventsCheckBox.Checked = true;
+            this.IncludeCreatedEventsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IncludeCreatedEventsCheckBox.Location = new System.Drawing.Point(7, 438);
+            this.IncludeCreatedEventsCheckBox.Name = "IncludeCreatedEventsCheckBox";
+            this.IncludeCreatedEventsCheckBox.Size = new System.Drawing.Size(137, 17);
+            this.IncludeCreatedEventsCheckBox.TabIndex = 22;
+            this.IncludeCreatedEventsCheckBox.Text = "Include Created Events";
+            this.IncludeCreatedEventsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // UnregisterFromEventButton
             // 
             this.UnregisterFromEventButton.BackColor = System.Drawing.Color.Salmon;
@@ -637,6 +653,7 @@
             this.GenerateEventScheduleButton.TabIndex = 19;
             this.GenerateEventScheduleButton.Text = "Generate Event Schedule";
             this.GenerateEventScheduleButton.UseVisualStyleBackColor = false;
+            this.GenerateEventScheduleButton.Click += new System.EventHandler(this.GenerateEventScheduleButton_Click);
             // 
             // panel3
             // 
@@ -994,9 +1011,9 @@
             this.UpcomingEventsGroupBox.Controls.Add(this.RedEventEntryLabel);
             this.UpcomingEventsGroupBox.Controls.Add(this.DetailedInformationGroupBox);
             this.UpcomingEventsGroupBox.Controls.Add(this.VolunteerEventsListView);
-            this.UpcomingEventsGroupBox.Location = new System.Drawing.Point(7, 7);
+            this.UpcomingEventsGroupBox.Location = new System.Drawing.Point(6, 6);
             this.UpcomingEventsGroupBox.Name = "UpcomingEventsGroupBox";
-            this.UpcomingEventsGroupBox.Size = new System.Drawing.Size(711, 246);
+            this.UpcomingEventsGroupBox.Size = new System.Drawing.Size(712, 247);
             this.UpcomingEventsGroupBox.TabIndex = 0;
             this.UpcomingEventsGroupBox.TabStop = false;
             this.UpcomingEventsGroupBox.Text = "Upcoming Events";
@@ -1007,9 +1024,9 @@
             this.UpcomingEventDateHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpcomingEventDateHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpcomingEventDateHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.UpcomingEventDateHeaderButton.Location = new System.Drawing.Point(408, 23);
+            this.UpcomingEventDateHeaderButton.Location = new System.Drawing.Point(393, 20);
             this.UpcomingEventDateHeaderButton.Name = "UpcomingEventDateHeaderButton";
-            this.UpcomingEventDateHeaderButton.Size = new System.Drawing.Size(73, 23);
+            this.UpcomingEventDateHeaderButton.Size = new System.Drawing.Size(71, 23);
             this.UpcomingEventDateHeaderButton.TabIndex = 6;
             this.UpcomingEventDateHeaderButton.Text = "Date";
             this.UpcomingEventDateHeaderButton.UseVisualStyleBackColor = false;
@@ -1021,7 +1038,7 @@
             this.UpcomingEventLocationHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpcomingEventLocationHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpcomingEventLocationHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.UpcomingEventLocationHeaderButton.Location = new System.Drawing.Point(308, 23);
+            this.UpcomingEventLocationHeaderButton.Location = new System.Drawing.Point(293, 20);
             this.UpcomingEventLocationHeaderButton.Name = "UpcomingEventLocationHeaderButton";
             this.UpcomingEventLocationHeaderButton.Size = new System.Drawing.Size(101, 23);
             this.UpcomingEventLocationHeaderButton.TabIndex = 5;
@@ -1035,9 +1052,9 @@
             this.UpcomingEventNameHeaderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpcomingEventNameHeaderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpcomingEventNameHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.UpcomingEventNameHeaderButton.Location = new System.Drawing.Point(6, 23);
+            this.UpcomingEventNameHeaderButton.Location = new System.Drawing.Point(6, 20);
             this.UpcomingEventNameHeaderButton.Name = "UpcomingEventNameHeaderButton";
-            this.UpcomingEventNameHeaderButton.Size = new System.Drawing.Size(303, 23);
+            this.UpcomingEventNameHeaderButton.Size = new System.Drawing.Size(288, 23);
             this.UpcomingEventNameHeaderButton.TabIndex = 4;
             this.UpcomingEventNameHeaderButton.Text = "Event Name";
             this.UpcomingEventNameHeaderButton.UseVisualStyleBackColor = false;
@@ -1082,9 +1099,9 @@
             this.DetailedInformationGroupBox.Controls.Add(this.label4);
             this.DetailedInformationGroupBox.Controls.Add(this.DetailedContactNumberLabel);
             this.DetailedInformationGroupBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DetailedInformationGroupBox.Location = new System.Drawing.Point(488, 20);
+            this.DetailedInformationGroupBox.Location = new System.Drawing.Point(498, 20);
             this.DetailedInformationGroupBox.Name = "DetailedInformationGroupBox";
-            this.DetailedInformationGroupBox.Size = new System.Drawing.Size(217, 201);
+            this.DetailedInformationGroupBox.Size = new System.Drawing.Size(207, 200);
             this.DetailedInformationGroupBox.TabIndex = 1;
             this.DetailedInformationGroupBox.TabStop = false;
             this.DetailedInformationGroupBox.Text = "Detailed Information";
@@ -1208,9 +1225,9 @@
             this.VolunteerEventsListView.GridLines = true;
             this.VolunteerEventsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.VolunteerEventsListView.HideSelection = false;
-            this.VolunteerEventsListView.Location = new System.Drawing.Point(6, 45);
+            this.VolunteerEventsListView.Location = new System.Drawing.Point(6, 42);
             this.VolunteerEventsListView.Name = "VolunteerEventsListView";
-            this.VolunteerEventsListView.Size = new System.Drawing.Size(475, 176);
+            this.VolunteerEventsListView.Size = new System.Drawing.Size(476, 177);
             this.VolunteerEventsListView.TabIndex = 0;
             this.VolunteerEventsListView.UseCompatibleStateImageBehavior = false;
             this.VolunteerEventsListView.View = System.Windows.Forms.View.Details;
@@ -1220,7 +1237,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 300;
+            this.columnHeader1.Width = 285;
             // 
             // columnHeader4
             // 
@@ -1244,18 +1261,6 @@
             this.MainTabControl.Size = new System.Drawing.Size(734, 495);
             this.MainTabControl.TabIndex = 2;
             this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControl_SelectedIndexChanged);
-            // 
-            // IncludeCreatedEventsCheckBox
-            // 
-            this.IncludeCreatedEventsCheckBox.AutoSize = true;
-            this.IncludeCreatedEventsCheckBox.Checked = true;
-            this.IncludeCreatedEventsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IncludeCreatedEventsCheckBox.Location = new System.Drawing.Point(7, 438);
-            this.IncludeCreatedEventsCheckBox.Name = "IncludeCreatedEventsCheckBox";
-            this.IncludeCreatedEventsCheckBox.Size = new System.Drawing.Size(137, 17);
-            this.IncludeCreatedEventsCheckBox.TabIndex = 22;
-            this.IncludeCreatedEventsCheckBox.Text = "Include Created Events";
-            this.IncludeCreatedEventsCheckBox.UseVisualStyleBackColor = true;
             // 
             // MainVolunteerForm
             // 

@@ -25,12 +25,17 @@ namespace IT_3883_Volunteer_App
             this._Id = id;
             this._Name = name;
             this._Date = date;
-            this._StartTime = DateTime.ParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture);
+            this._StartTime = DateTime.ParseExact(time, "h:mm tt", CultureInfo.InvariantCulture);
             this._Duration = duration;
             this._EndTime = this._StartTime.AddHours(duration);
             this._Location = location;
             this._Creator = contact;
             this._RegisteredUsers = new List<User>();
+        }
+
+        public void UpdateCreator(User user)
+        {
+            this._Creator = user;
         }
 
         public List<User> RegisteredUsers
