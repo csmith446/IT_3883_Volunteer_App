@@ -922,7 +922,7 @@
             this.SelectedEventsHeaderPanel.Controls.Add(this.AddEventErrorMessageLabel);
             this.SelectedEventsHeaderPanel.Location = new System.Drawing.Point(13, 263);
             this.SelectedEventsHeaderPanel.Name = "SelectedEventsHeaderPanel";
-            this.SelectedEventsHeaderPanel.Size = new System.Drawing.Size(475, 23);
+            this.SelectedEventsHeaderPanel.Size = new System.Drawing.Size(458, 23);
             this.SelectedEventsHeaderPanel.TabIndex = 10;
             // 
             // SelectedEventsCountLabel
@@ -942,9 +942,9 @@
             this.AddEventErrorMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.AddEventErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEventErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.AddEventErrorMessageLabel.Location = new System.Drawing.Point(118, 3);
+            this.AddEventErrorMessageLabel.Location = new System.Drawing.Point(122, 1);
             this.AddEventErrorMessageLabel.Name = "AddEventErrorMessageLabel";
-            this.AddEventErrorMessageLabel.Size = new System.Drawing.Size(356, 15);
+            this.AddEventErrorMessageLabel.Size = new System.Drawing.Size(331, 18);
             this.AddEventErrorMessageLabel.TabIndex = 4;
             this.AddEventErrorMessageLabel.Text = "[error msg]";
             this.AddEventErrorMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -995,7 +995,7 @@
             this.SelectedEventsListBox.FormattingEnabled = true;
             this.SelectedEventsListBox.Location = new System.Drawing.Point(13, 285);
             this.SelectedEventsListBox.Name = "SelectedEventsListBox";
-            this.SelectedEventsListBox.Size = new System.Drawing.Size(475, 173);
+            this.SelectedEventsListBox.Size = new System.Drawing.Size(458, 173);
             this.SelectedEventsListBox.Sorted = true;
             this.SelectedEventsListBox.TabIndex = 1;
             // 
@@ -1026,7 +1026,7 @@
             this.UpcomingEventDateHeaderButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.UpcomingEventDateHeaderButton.Location = new System.Drawing.Point(393, 20);
             this.UpcomingEventDateHeaderButton.Name = "UpcomingEventDateHeaderButton";
-            this.UpcomingEventDateHeaderButton.Size = new System.Drawing.Size(71, 23);
+            this.UpcomingEventDateHeaderButton.Size = new System.Drawing.Size(72, 23);
             this.UpcomingEventDateHeaderButton.TabIndex = 6;
             this.UpcomingEventDateHeaderButton.Text = "Date";
             this.UpcomingEventDateHeaderButton.UseVisualStyleBackColor = false;
@@ -1227,7 +1227,7 @@
             this.VolunteerEventsListView.HideSelection = false;
             this.VolunteerEventsListView.Location = new System.Drawing.Point(6, 42);
             this.VolunteerEventsListView.Name = "VolunteerEventsListView";
-            this.VolunteerEventsListView.Size = new System.Drawing.Size(476, 177);
+            this.VolunteerEventsListView.Size = new System.Drawing.Size(459, 177);
             this.VolunteerEventsListView.TabIndex = 0;
             this.VolunteerEventsListView.UseCompatibleStateImageBehavior = false;
             this.VolunteerEventsListView.View = System.Windows.Forms.View.Details;

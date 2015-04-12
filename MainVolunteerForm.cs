@@ -15,6 +15,7 @@ namespace IT_3883_Volunteer_App
         private List<int> SelectedEventIds;     //list for 'saving' selected events when sorting
         private List<User> UserList;            //main User list - pulled form database
         private List<Event> EventList;          //main event list - pulled from database
+        private List<ListViewItem> RegisteredEventItems;
 
         private LoginForm LoginForm;
         private User CurrentUser;
@@ -103,8 +104,9 @@ namespace IT_3883_Volunteer_App
         {
             VolunteerEventsListView.Items.Clear();
             VolunteerEventsListView.CheckBoxes = true;
+            RegisteredEventItems = new List<ListViewItem>();
+
             var currentEvents = EventList;
-            var RegisteredEventItems = new List<ListViewItem>();
             switch (order)
             {
                 case OrderBy.Name:
@@ -179,6 +181,7 @@ namespace IT_3883_Volunteer_App
             HideRegisteredEventsCheckBox.Visible = RegisteredEventItems.Count > 0;
             RedEventEntryLabel.Visible = RegisteredEventItems.Count > 0;
             VolunteerEventsListView.Items[0].Selected = true;
+            AdjustEventListViewSize();
         }
 
         private void FixHeaderColors()
@@ -238,12 +241,42 @@ namespace IT_3883_Volunteer_App
                 Application.Exit();
         }
 
+        private void AdjustEventListViewSize()
+        {
+            if (VolunteerEventsListView.Items.Count > 10)
+                VolunteerEventsListView.Width = 476;
+            else
+                VolunteerEventsListView.Width = 459;
+        }
+
+        private void HideRegisteredEvents(bool Hidden = true)
+        {
+            if (Hidden)
+            {
+                foreach (ListViewItem item in VolunteerEventsListView.Items)
+                {
+                    if (RegisteredEventItems.Contains(item))
+                        item.Remove();
+                }
+            }
+            else
+            {
+                foreach (ListViewItem item in RegisteredEventItems)
+                {
+                    item.ForeColor = Color.Red;
+                    VolunteerEventsListView.Items.Add(item);
+                }
+            }
+
+            AdjustEventListViewSize();
+        }
+
         private void HideRegisteredEventsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (HideRegisteredEventsCheckBox.Checked)
-                LoadCurrentEvents(true);
+                HideRegisteredEvents();
             else
-                LoadCurrentEvents(false);
+                HideRegisteredEvents(false);
         }
 
         //todo: duration check for added events to prevent overlap 
