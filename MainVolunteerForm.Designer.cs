@@ -331,6 +331,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.AdminEventContactEmail);
             this.panel2.Controls.Add(this.AdminEventCreatorLabel);
@@ -430,6 +431,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.AdminUserCreatedEventLabel);
             this.panel4.Controls.Add(this.AdminUserRegisteredEvents);
@@ -657,6 +659,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.RegisteredEventContactEmail);
             this.panel3.Controls.Add(this.RegisteredEventContactLabel);
@@ -756,6 +759,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.CreatedEventTimeLabel);
             this.panel1.Controls.Add(this.CreatedEventAttendees);
@@ -916,7 +920,7 @@
             // 
             // SelectedEventsHeaderPanel
             // 
-            this.SelectedEventsHeaderPanel.BackColor = System.Drawing.Color.PaleGreen;
+            this.SelectedEventsHeaderPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.SelectedEventsHeaderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedEventsHeaderPanel.Controls.Add(this.SelectedEventsCountLabel);
             this.SelectedEventsHeaderPanel.Controls.Add(this.AddEventErrorMessageLabel);
@@ -942,9 +946,9 @@
             this.AddEventErrorMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.AddEventErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEventErrorMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.AddEventErrorMessageLabel.Location = new System.Drawing.Point(122, 1);
+            this.AddEventErrorMessageLabel.Location = new System.Drawing.Point(91, 1);
             this.AddEventErrorMessageLabel.Name = "AddEventErrorMessageLabel";
-            this.AddEventErrorMessageLabel.Size = new System.Drawing.Size(331, 18);
+            this.AddEventErrorMessageLabel.Size = new System.Drawing.Size(362, 18);
             this.AddEventErrorMessageLabel.TabIndex = 4;
             this.AddEventErrorMessageLabel.Text = "[error msg]";
             this.AddEventErrorMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

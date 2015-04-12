@@ -33,7 +33,7 @@ namespace IT_3883_Volunteer_App
                 password = ConfirmPasswordTextBox.Text;
 
             string hashedPassword = MD5Hasher.GetHashedValue(password);
-            DatabaseManager.RegisterNewUser(emailAddress, hashedPassword, firstName, lastName, phoneNumber);
+            DatabaseManager.RegisterNewUser(emailAddress, hashedPassword, firstName, lastName, phoneNumber, false);
         }
 
         //TODO: show correct error message for email address 
@@ -221,7 +221,9 @@ namespace IT_3883_Volunteer_App
         private void ValidateFirstName_Validating(object sender, CancelEventArgs e)
         {
             if (!ValidateFirstName())
+            {
                 SetErrorForControl(FirstNameTextBox, FIRST_NAME_ERROR);
+            }
             else
             {
                 SetErrorForControl(FirstNameTextBox);

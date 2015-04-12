@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.UserIsAdminCheckBox = new System.Windows.Forms.CheckBox();
             this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
@@ -43,6 +44,8 @@
             this.EmailAddressLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // UserIsAdminCheckBox
@@ -59,15 +62,21 @@
             // 
             this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(101, 147);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
+            this.ConfirmPasswordTextBox.PasswordChar = '•';
             this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(279, 20);
             this.ConfirmPasswordTextBox.TabIndex = 30;
+            this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
+            this.ConfirmPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmPasswordTextBox_KeyUp);
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(101, 117);
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '•';
             this.PasswordTextBox.Size = new System.Drawing.Size(279, 20);
             this.PasswordTextBox.TabIndex = 29;
+            this.PasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
+            this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatePassword_Validating);
             // 
             // ConfirmPasswordLabel
             // 
@@ -94,6 +103,9 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(80, 20);
             this.PhoneNumberTextBox.TabIndex = 25;
+            this.PhoneNumberTextBox.Enter += new System.EventHandler(this.ClearPhoneNumber_EnterFocus);
+            this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForNumber_KeyPress);
+            this.PhoneNumberTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatePhoneNumber_Validating);
             // 
             // EmailAddressTextBox
             // 
@@ -101,6 +113,7 @@
             this.EmailAddressTextBox.Name = "EmailAddressTextBox";
             this.EmailAddressTextBox.Size = new System.Drawing.Size(279, 20);
             this.EmailAddressTextBox.TabIndex = 24;
+            this.EmailAddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmailAddress_Validating);
             // 
             // LastNameTextBox
             // 
@@ -108,6 +121,8 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.LastNameTextBox.TabIndex = 23;
+            this.LastNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForName_KeyPress);
+            this.LastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateLastName_Validating);
             // 
             // FirstNameTextBox
             // 
@@ -115,6 +130,8 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.FirstNameTextBox.TabIndex = 22;
+            this.FirstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForName_KeyPress);
+            this.FirstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateFirstName_Validating);
             // 
             // CreateUserButton
             // 
@@ -128,6 +145,7 @@
             this.CreateUserButton.TabIndex = 21;
             this.CreateUserButton.Text = "Create User Account";
             this.CreateUserButton.UseVisualStyleBackColor = false;
+            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // CancelNewUserButton
             // 
@@ -179,6 +197,11 @@
             this.FirstNameLabel.TabIndex = 16;
             this.FirstNameLabel.Text = "First Name:";
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // CreateUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +226,7 @@
             this.Name = "CreateUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create a New User Account";
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +249,6 @@
         private System.Windows.Forms.Label EmailAddressLabel;
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

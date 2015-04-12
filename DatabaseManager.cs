@@ -89,7 +89,7 @@ namespace IT_3883_Volunteer_App
         /// <param name="lastName">The user's last name.</param>
         /// <param name="phoneNumber">The user's phone number.</param>
         static public void RegisterNewUser(string username, string password, string firstName,
-            string lastName, string phoneNumber)
+            string lastName, string phoneNumber, bool admin)
         {
             using (var connection = GetConnection())
             {
@@ -98,13 +98,14 @@ namespace IT_3883_Volunteer_App
                     "ContactInfoID, IsAdmin) VALUES (@username, @password, @firstName, @lastName, " +
                     "@contact, @admin)";
                 var cmd = connection.CreateCommand();
+                var isAdmin = (admin) ? "1" : "0";
                 cmd.CommandText = query;
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@firstName", firstName);
                 cmd.Parameters.AddWithValue("@lastName", lastName);
                 cmd.Parameters.AddWithValue("@contact", contactID);
-                cmd.Parameters.AddWithValue("@admin", FALSE);
+                cmd.Parameters.AddWithValue("@admin", isAdmin);
 
                 cmd.ExecuteNonQuery();
             }
