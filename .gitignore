@@ -1,3 +1,4 @@
 *.sln
+*.sou
 /obj/*
 /bin/*
