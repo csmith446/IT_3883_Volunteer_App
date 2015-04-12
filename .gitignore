@@ -1,5 +1,3 @@
 *.sln
-*.sou
-IT_3883_Volunteer_App.v12.suo
 /obj/*
 /bin/*
