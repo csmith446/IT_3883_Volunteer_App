@@ -403,9 +403,9 @@ namespace IT_3883_Volunteer_App
         }
 
         //edit a user
-        private DialogResult ShowUserForm(User usr, bool adminEdit = false)
+        private DialogResult ShowUserForm(User usr, bool adminEdit = false, bool self = false)
         {
-            var viewUserForm = new ViewUserForm(usr, adminEdit);
+            var viewUserForm = new ViewUserForm(usr, adminEdit, self);
             viewUserForm.ShowDialog(this);
             return viewUserForm.DialogResult;
         }
@@ -443,7 +443,7 @@ namespace IT_3883_Volunteer_App
 
         private void UpdateInformationMenuItem_Click(object sender, EventArgs e)
         {
-            ShowUserForm(CurrentUser);
+            ShowUserForm(CurrentUser, false, true);
             //todo: dialog result: if OK then
             //UpdateLists(CurrentUser);
         }
@@ -666,7 +666,7 @@ namespace IT_3883_Volunteer_App
                 }
             }
 
-            ShowUserForm(selectedUser, true);
+            ShowUserForm(selectedUser, true, selectedUser.Username == CurrentUser.Username);
             //todo: diagog result: if OK then
             //UpdateLists(CurrentUser);
         }

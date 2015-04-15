@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.EmailAddressLabel = new System.Windows.Forms.Label();
@@ -44,12 +45,14 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.IsAdminCheckBox = new System.Windows.Forms.CheckBox();
+            this.EditErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.EditErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(35, 20);
+            this.FirstNameLabel.Location = new System.Drawing.Point(19, 20);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(60, 13);
             this.FirstNameLabel.TabIndex = 0;
@@ -94,7 +97,7 @@
             this.CancelEditButton.TabIndex = 4;
             this.CancelEditButton.Text = "Cancel";
             this.CancelEditButton.UseVisualStyleBackColor = false;
-            this.CancelEditButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelEditButton.Click += new System.EventHandler(this.CancelEditButton_Click);
             // 
             // SaveChangesButton
             // 
@@ -111,10 +114,12 @@
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(101, 17);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(85, 17);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.FirstNameTextBox.TabIndex = 6;
+            this.FirstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForName_KeyPress);
+            this.FirstNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateFirstName_Validating);
             // 
             // LastNameTextBox
             // 
@@ -122,6 +127,8 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.LastNameTextBox.TabIndex = 7;
+            this.LastNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForName_KeyPress);
+            this.LastNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateLastName_Validating);
             // 
             // EmailAddressTextBox
             // 
@@ -129,6 +136,7 @@
             this.EmailAddressTextBox.Name = "EmailAddressTextBox";
             this.EmailAddressTextBox.Size = new System.Drawing.Size(279, 20);
             this.EmailAddressTextBox.TabIndex = 8;
+            this.EmailAddressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidateEmailAddress_Validating);
             // 
             // PhoneNumberTextBox
             // 
@@ -137,11 +145,14 @@
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(80, 20);
             this.PhoneNumberTextBox.TabIndex = 9;
+            this.PhoneNumberTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
+            this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LimitInputForNumber_KeyPress);
+            this.PhoneNumberTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatePhoneNumber_Validating);
             // 
             // ChangePasswordCheckBox
             // 
             this.ChangePasswordCheckBox.AutoSize = true;
-            this.ChangePasswordCheckBox.Location = new System.Drawing.Point(265, 79);
+            this.ChangePasswordCheckBox.Location = new System.Drawing.Point(280, 79);
             this.ChangePasswordCheckBox.Name = "ChangePasswordCheckBox";
             this.ChangePasswordCheckBox.Size = new System.Drawing.Size(112, 17);
             this.ChangePasswordCheckBox.TabIndex = 10;
@@ -152,7 +163,7 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(36, 120);
+            this.PasswordLabel.Location = new System.Drawing.Point(23, 120);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(56, 13);
             this.PasswordLabel.TabIndex = 11;
@@ -162,7 +173,7 @@
             // ConfirmPasswordLabel
             // 
             this.ConfirmPasswordLabel.AutoSize = true;
-            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(47, 150);
+            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(34, 150);
             this.ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
             this.ConfirmPasswordLabel.Size = new System.Drawing.Size(45, 13);
             this.ConfirmPasswordLabel.TabIndex = 12;
@@ -171,33 +182,41 @@
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(101, 117);
+            this.PasswordTextBox.Location = new System.Drawing.Point(85, 117);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(279, 20);
             this.PasswordTextBox.TabIndex = 13;
             this.PasswordTextBox.Visible = false;
+            this.PasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
+            this.PasswordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ValidatePassword_Validating);
             // 
             // ConfirmPasswordTextBox
             // 
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(101, 147);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(85, 147);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
             this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(279, 20);
             this.ConfirmPasswordTextBox.TabIndex = 14;
             this.ConfirmPasswordTextBox.Visible = false;
+            this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.ClearInput_EnterFocus);
+            this.ConfirmPasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConfirmPasswordTextBox_KeyUp);
             // 
             // IsAdminCheckBox
             // 
             this.IsAdminCheckBox.AutoSize = true;
-            this.IsAdminCheckBox.Location = new System.Drawing.Point(193, 79);
+            this.IsAdminCheckBox.Location = new System.Drawing.Point(219, 79);
             this.IsAdminCheckBox.Name = "IsAdminCheckBox";
-            this.IsAdminCheckBox.Size = new System.Drawing.Size(66, 17);
+            this.IsAdminCheckBox.Size = new System.Drawing.Size(55, 17);
             this.IsAdminCheckBox.TabIndex = 15;
-            this.IsAdminCheckBox.Text = "Is Admin";
+            this.IsAdminCheckBox.Text = "Admin";
             this.IsAdminCheckBox.UseVisualStyleBackColor = true;
             this.IsAdminCheckBox.Visible = false;
             this.IsAdminCheckBox.CheckedChanged += new System.EventHandler(this.IsAdminCheckBox_CheckedChanged);
             // 
-            // EditUserForm
+            // EditErrorProvider
+            // 
+            this.EditErrorProvider.ContainerControl = this;
+            // 
+            // ViewUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,9 +239,10 @@
             this.Controls.Add(this.FirstNameLabel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "EditUserForm";
+            this.Name = "ViewUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditUserForm";
+            ((System.ComponentModel.ISupportInitialize)(this.EditErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +266,6 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox ConfirmPasswordTextBox;
         private System.Windows.Forms.CheckBox IsAdminCheckBox;
+        private System.Windows.Forms.ErrorProvider EditErrorProvider;
     }
 }

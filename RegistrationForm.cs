@@ -182,8 +182,10 @@ namespace IT_3883_Volunteer_App
             this.Close();
         }
 
+        private bool Canceled = false;
         private void CancelRegistrationButton_Click(object sender, EventArgs e)
         {
+            Canceled = true;
             CloseRegistrationForm();
         }
 
@@ -248,7 +250,7 @@ namespace IT_3883_Volunteer_App
                 SetErrorForControl(PhoneNumberTextBox, PHONE_ERROR);
             else
             {
-                MainErrorProvider.SetError(PhoneNumberTextBox, "");
+                SetErrorForControl(PhoneNumberTextBox);
                 PhoneNumberTextBox.Text = FormatPhoneNumber(Int64.Parse(PhoneNumberTextBox.Text));
             }
         }
@@ -293,10 +295,13 @@ namespace IT_3883_Volunteer_App
 
         private void ConfirmPasswordTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!ValidateConfirmedPassword() && PasswordIsValid)
-                SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
-            else
-                SetErrorForControl(ConfirmPasswordTextBox);
+            if (ConfirmPasswordTextBox.Text.Length >= PasswordTextBox.Text.Length)
+            {
+                if (!ValidateConfirmedPassword() && PasswordIsValid)
+                    SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
+                else
+                    SetErrorForControl(ConfirmPasswordTextBox);
+            }
         }
 
         private void RegistrationForm_FormClosing(object sender, FormClosingEventArgs e)

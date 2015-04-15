@@ -13,8 +13,7 @@ namespace IT_3883_Volunteer_App
 {
     public partial class CreateUserForm : Form
     {
-        //todo: input validation, error providers, database query
-        //todo: dialog result
+        //[todo] move to global constant file
         private const string FIRST_NAME_ERROR = "Your first name cannot be left blank.";
         private const string LAST_NAME_ERROR = "Your last name cannot be left blank.";
         private const string PHONE_ERROR = "Your phone number cannot be blank and must be 10 digits long";
@@ -53,7 +52,7 @@ namespace IT_3883_Volunteer_App
             return false;
         }
 
-        private void ProcessRegistration()
+        private void ProcessNewUserCreation()
         {
             if (ValidateForm())
             {
@@ -64,7 +63,7 @@ namespace IT_3883_Volunteer_App
             }
         }
 
-        private void CloseRegistrationForm()
+        private void CloseNewUserForm()
         {
             this.Close();
         }
@@ -171,8 +170,8 @@ namespace IT_3883_Volunteer_App
 
         private void SetErrorForControl(Control control, string error = "")
         {
-            ErrorProvider.SetError(control, error);
-            ErrorProvider.SetIconPadding(control, 10);
+            NewUserErrorProvider.SetError(control, error);
+            NewUserErrorProvider.SetIconPadding(control, 10);
         }
 
         private void ValidateFirstName_Validating(object sender, CancelEventArgs e)
@@ -203,7 +202,7 @@ namespace IT_3883_Volunteer_App
                 SetErrorForControl(PhoneNumberTextBox, PHONE_ERROR);
             else
             {
-                ErrorProvider.SetError(PhoneNumberTextBox, "");
+                SetErrorForControl(PhoneNumberTextBox);
                 PhoneNumberTextBox.Text = FormatPhoneNumber(Int64.Parse(PhoneNumberTextBox.Text));
             }
         }
@@ -263,30 +262,25 @@ namespace IT_3883_Volunteer_App
                 e.Handled = true;
         }
 
-        private void RegistrationForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Escape)
-                CloseRegistrationForm();
-            else if (e.KeyData == Keys.Enter || e.KeyData == Keys.Return)
-                ProcessRegistration();
-        }
-
         private void ConfirmPasswordTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!ValidateConfirmedPassword() && PasswordIsValid)
-                SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
-            else
-                SetErrorForControl(ConfirmPasswordTextBox);
+            if (ConfirmPasswordTextBox.Text.Length >= PasswordTextBox.Text.Length)
+            {
+                if (!ValidateConfirmedPassword() && PasswordIsValid)
+                    SetErrorForControl(ConfirmPasswordTextBox, CONFIRM_ERROR);
+                else
+                    SetErrorForControl(ConfirmPasswordTextBox);
+            }
         }
 
         private void CancelNewUserButton_Click(object sender, EventArgs e)
         {
-            CloseRegistrationForm();
+            CloseNewUserForm();
         }
 
         private void CreateUserButton_Click(object sender, EventArgs e)
         {
-            ProcessRegistration();
+            ProcessNewUserCreation();
 
         }
     }

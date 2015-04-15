@@ -129,6 +129,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MainTabControl = new System.Windows.Forms.TabControl();
+            this.ShowOldCreatedEventsCheckBox = new System.Windows.Forms.CheckBox();
+            this.ShowOldRegisteredEventsCheckBox = new System.Windows.Forms.CheckBox();
             this.MainStatusStrip.SuspendLayout();
             this.MainFormMenuStrip.SuspendLayout();
             this.AdminTab.SuspendLayout();
@@ -279,7 +281,7 @@
             this.AdminRegisterUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminRegisterUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminRegisterUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminRegisterUserButton.Location = new System.Drawing.Point(229, 326);
+            this.AdminRegisterUserButton.Location = new System.Drawing.Point(229, 346);
             this.AdminRegisterUserButton.Name = "AdminRegisterUserButton";
             this.AdminRegisterUserButton.Size = new System.Drawing.Size(113, 30);
             this.AdminRegisterUserButton.TabIndex = 22;
@@ -293,7 +295,7 @@
             this.AdminDeleteEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminDeleteEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminDeleteEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminDeleteEventButton.Location = new System.Drawing.Point(118, 326);
+            this.AdminDeleteEventButton.Location = new System.Drawing.Point(118, 346);
             this.AdminDeleteEventButton.Name = "AdminDeleteEventButton";
             this.AdminDeleteEventButton.Size = new System.Drawing.Size(112, 30);
             this.AdminDeleteEventButton.TabIndex = 21;
@@ -307,7 +309,7 @@
             this.AdminEditEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminEditEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminEditEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminEditEventButton.Location = new System.Drawing.Point(6, 326);
+            this.AdminEditEventButton.Location = new System.Drawing.Point(6, 346);
             this.AdminEditEventButton.Name = "AdminEditEventButton";
             this.AdminEditEventButton.Size = new System.Drawing.Size(113, 30);
             this.AdminEditEventButton.TabIndex = 20;
@@ -335,7 +337,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.AdminEventContactEmail);
             this.panel2.Controls.Add(this.AdminEventCreatorLabel);
-            this.panel2.Location = new System.Drawing.Point(6, 286);
+            this.panel2.Location = new System.Drawing.Point(6, 306);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(338, 23);
             this.panel2.TabIndex = 18;
@@ -384,7 +386,7 @@
             this.AdminEventListView.Location = new System.Drawing.Point(6, 42);
             this.AdminEventListView.MultiSelect = false;
             this.AdminEventListView.Name = "AdminEventListView";
-            this.AdminEventListView.Size = new System.Drawing.Size(338, 245);
+            this.AdminEventListView.Size = new System.Drawing.Size(338, 265);
             this.AdminEventListView.TabIndex = 7;
             this.AdminEventListView.UseCompatibleStateImageBehavior = false;
             this.AdminEventListView.View = System.Windows.Forms.View.Details;
@@ -437,7 +439,7 @@
             this.panel4.Controls.Add(this.AdminUserRegisteredEvents);
             this.panel4.Controls.Add(this.AdminUserCreatedEvents);
             this.panel4.Controls.Add(this.AdminUserRegisteredEventLabel);
-            this.panel4.Location = new System.Drawing.Point(6, 286);
+            this.panel4.Location = new System.Drawing.Point(6, 306);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(338, 23);
             this.panel4.TabIndex = 16;
@@ -484,7 +486,7 @@
             this.AdminDeleteUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminDeleteUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminDeleteUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminDeleteUserButton.Location = new System.Drawing.Point(175, 326);
+            this.AdminDeleteUserButton.Location = new System.Drawing.Point(175, 346);
             this.AdminDeleteUserButton.Name = "AdminDeleteUserButton";
             this.AdminDeleteUserButton.Size = new System.Drawing.Size(169, 30);
             this.AdminDeleteUserButton.TabIndex = 11;
@@ -498,7 +500,7 @@
             this.AdminEditUserButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.AdminEditUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdminEditUserButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AdminEditUserButton.Location = new System.Drawing.Point(6, 326);
+            this.AdminEditUserButton.Location = new System.Drawing.Point(6, 346);
             this.AdminEditUserButton.Name = "AdminEditUserButton";
             this.AdminEditUserButton.Size = new System.Drawing.Size(170, 30);
             this.AdminEditUserButton.TabIndex = 10;
@@ -558,7 +560,7 @@
             this.AdminUserListView.Location = new System.Drawing.Point(6, 42);
             this.AdminUserListView.MultiSelect = false;
             this.AdminUserListView.Name = "AdminUserListView";
-            this.AdminUserListView.Size = new System.Drawing.Size(338, 245);
+            this.AdminUserListView.Size = new System.Drawing.Size(338, 265);
             this.AdminUserListView.TabIndex = 1;
             this.AdminUserListView.UseCompatibleStateImageBehavior = false;
             this.AdminUserListView.View = System.Windows.Forms.View.Details;
@@ -588,6 +590,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ShowOldRegisteredEventsCheckBox);
             this.groupBox2.Controls.Add(this.IncludeCreatedEventsCheckBox);
             this.groupBox2.Controls.Add(this.UnregisterFromEventButton);
             this.groupBox2.Controls.Add(this.ViewSelectedEventButton);
@@ -621,7 +624,7 @@
             this.UnregisterFromEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.UnregisterFromEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UnregisterFromEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.UnregisterFromEventButton.Location = new System.Drawing.Point(175, 326);
+            this.UnregisterFromEventButton.Location = new System.Drawing.Point(175, 346);
             this.UnregisterFromEventButton.Name = "UnregisterFromEventButton";
             this.UnregisterFromEventButton.Size = new System.Drawing.Size(169, 30);
             this.UnregisterFromEventButton.TabIndex = 21;
@@ -635,7 +638,7 @@
             this.ViewSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.ViewSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ViewSelectedEventButton.Location = new System.Drawing.Point(6, 326);
+            this.ViewSelectedEventButton.Location = new System.Drawing.Point(6, 346);
             this.ViewSelectedEventButton.Name = "ViewSelectedEventButton";
             this.ViewSelectedEventButton.Size = new System.Drawing.Size(170, 30);
             this.ViewSelectedEventButton.TabIndex = 20;
@@ -743,6 +746,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ShowOldCreatedEventsCheckBox);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.DeleteSelectedEventButton);
             this.groupBox1.Controls.Add(this.EditSelectedEventButton);
@@ -812,7 +816,7 @@
             this.DeleteSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.DeleteSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DeleteSelectedEventButton.Location = new System.Drawing.Point(175, 326);
+            this.DeleteSelectedEventButton.Location = new System.Drawing.Point(175, 346);
             this.DeleteSelectedEventButton.Name = "DeleteSelectedEventButton";
             this.DeleteSelectedEventButton.Size = new System.Drawing.Size(169, 30);
             this.DeleteSelectedEventButton.TabIndex = 11;
@@ -826,7 +830,7 @@
             this.EditSelectedEventButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.EditSelectedEventButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditSelectedEventButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EditSelectedEventButton.Location = new System.Drawing.Point(6, 326);
+            this.EditSelectedEventButton.Location = new System.Drawing.Point(6, 346);
             this.EditSelectedEventButton.Name = "EditSelectedEventButton";
             this.EditSelectedEventButton.Size = new System.Drawing.Size(170, 30);
             this.EditSelectedEventButton.TabIndex = 10;
@@ -1266,6 +1270,26 @@
             this.MainTabControl.TabIndex = 2;
             this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControl_SelectedIndexChanged);
             // 
+            // ShowOldCreatedEventsCheckBox
+            // 
+            this.ShowOldCreatedEventsCheckBox.AutoSize = true;
+            this.ShowOldCreatedEventsCheckBox.Location = new System.Drawing.Point(6, 315);
+            this.ShowOldCreatedEventsCheckBox.Name = "ShowOldCreatedEventsCheckBox";
+            this.ShowOldCreatedEventsCheckBox.Size = new System.Drawing.Size(108, 17);
+            this.ShowOldCreatedEventsCheckBox.TabIndex = 23;
+            this.ShowOldCreatedEventsCheckBox.Text = "Show Old Events";
+            this.ShowOldCreatedEventsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ShowOldRegisteredEventsCheckBox
+            // 
+            this.ShowOldRegisteredEventsCheckBox.AutoSize = true;
+            this.ShowOldRegisteredEventsCheckBox.Location = new System.Drawing.Point(6, 315);
+            this.ShowOldRegisteredEventsCheckBox.Name = "ShowOldRegisteredEventsCheckBox";
+            this.ShowOldRegisteredEventsCheckBox.Size = new System.Drawing.Size(108, 17);
+            this.ShowOldRegisteredEventsCheckBox.TabIndex = 24;
+            this.ShowOldRegisteredEventsCheckBox.Text = "Show Old Events";
+            this.ShowOldRegisteredEventsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainVolunteerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1299,6 +1323,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ViewEventsTab.ResumeLayout(false);
@@ -1416,5 +1441,7 @@
         private System.Windows.Forms.Label RegisteredEventContactLabel;
         private System.Windows.Forms.Button CreatedEventDateHeaderButton;
         private System.Windows.Forms.CheckBox IncludeCreatedEventsCheckBox;
+        private System.Windows.Forms.CheckBox ShowOldRegisteredEventsCheckBox;
+        private System.Windows.Forms.CheckBox ShowOldCreatedEventsCheckBox;
     }
 }

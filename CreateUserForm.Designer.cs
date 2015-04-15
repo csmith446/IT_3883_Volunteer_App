@@ -44,14 +44,14 @@
             this.EmailAddressLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
-            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            this.NewUserErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.NewUserErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // UserIsAdminCheckBox
             // 
             this.UserIsAdminCheckBox.AutoSize = true;
-            this.UserIsAdminCheckBox.Location = new System.Drawing.Point(204, 79);
+            this.UserIsAdminCheckBox.Location = new System.Drawing.Point(244, 79);
             this.UserIsAdminCheckBox.Name = "UserIsAdminCheckBox";
             this.UserIsAdminCheckBox.Size = new System.Drawing.Size(136, 17);
             this.UserIsAdminCheckBox.TabIndex = 31;
@@ -60,7 +60,7 @@
             // 
             // ConfirmPasswordTextBox
             // 
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(101, 147);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(85, 147);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
             this.ConfirmPasswordTextBox.PasswordChar = '•';
             this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(279, 20);
@@ -70,7 +70,7 @@
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(101, 117);
+            this.PasswordTextBox.Location = new System.Drawing.Point(85, 117);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '•';
             this.PasswordTextBox.Size = new System.Drawing.Size(279, 20);
@@ -81,7 +81,7 @@
             // ConfirmPasswordLabel
             // 
             this.ConfirmPasswordLabel.AutoSize = true;
-            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(47, 150);
+            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(34, 150);
             this.ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
             this.ConfirmPasswordLabel.Size = new System.Drawing.Size(45, 13);
             this.ConfirmPasswordLabel.TabIndex = 28;
@@ -90,7 +90,7 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(36, 120);
+            this.PasswordLabel.Location = new System.Drawing.Point(23, 120);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(56, 13);
             this.PasswordLabel.TabIndex = 27;
@@ -126,7 +126,7 @@
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(101, 17);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(85, 17);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.FirstNameTextBox.TabIndex = 22;
@@ -191,16 +191,16 @@
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(35, 20);
+            this.FirstNameLabel.Location = new System.Drawing.Point(19, 20);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(60, 13);
             this.FirstNameLabel.TabIndex = 16;
             this.FirstNameLabel.Text = "First Name:";
             // 
-            // ErrorProvider
+            // NewUserErrorProvider
             // 
-            this.ErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.ErrorProvider.ContainerControl = this;
+            this.NewUserErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.NewUserErrorProvider.ContainerControl = this;
             // 
             // CreateUserForm
             // 
@@ -226,7 +226,7 @@
             this.Name = "CreateUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create a New User Account";
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NewUserErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,6 +249,6 @@
         private System.Windows.Forms.Label EmailAddressLabel;
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
-        private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.ErrorProvider NewUserErrorProvider;
     }
 }
